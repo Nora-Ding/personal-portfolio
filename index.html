@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Portfolio</title>
+  <title>丁文慧 | 个人作品集</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,36 +11,37 @@
 <body>
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">Portfolio</a>
+      <a href="#" class="logo" data-i18n="nav.logo">Portfolio</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">实践成果</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-i18n="nav.about">关于我</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">实践成果</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">能力</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">联系</a></li>
       </ul>
+      <button class="language-toggle" type="button" id="language-toggle" aria-label="Switch language">EN</button>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container">
-      <h1 class="hero-title">Hi，我是<span class="highlight">丁文慧</span></h1>
-      <p class="hero-subtitle">历史学在读硕士 · 英语翻译学士</p>
-      <p class="hero-desc">对世界充满好奇，对表达充满热情。关注人文，也关注人。</p>
+      <h1 class="hero-title" data-i18n="hero.title">Hi，我是<span class="highlight">丁文慧</span></h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">历史学在读硕士 · 英语翻译学士</p>
+      <p class="hero-desc" data-i18n="hero.desc">对世界充满好奇，对表达充满热情。关注人文，也关注人。</p>
       <div class="hero-actions">
-        <a href="#about" class="btn btn-primary">了解更多</a>
-        <a href="#contact" class="btn btn-secondary">联系我</a>
+        <a href="#about" class="btn btn-primary" data-i18n="hero.primary">了解更多</a>
+        <a href="#contact" class="btn btn-secondary" data-i18n="hero.secondary">联系我</a>
       </div>
     </div>
   </header>
 
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title" data-i18n="about.title">关于我</h2>
       <div class="about-content">
         <div class="about-text">
-          <p>华中师范大学中国史专业在读硕士，本科毕业于武汉商学院英语翻译专业。具备扎实的中英文双语能力（英语专业八级），以及丰富的人文素养与跨文化视野。</p>
-          <p>曾在 LingoAce 担任 HR 招聘专员，深度参与国际化招聘全流程；同时拥有高校教务助理经验，熟悉教学运营与跨部门协作。亦曾参与香港、澳门及日本等交流项目，对跨文化沟通有切身理解。</p>
-          <p>对写作、表达与人际联结保持长期热情，曾为《品读武汉美食》一书撰稿并于 2024 年由武汉出版社出版。</p>
+          <p data-i18n="about.p1">华中师范大学中国史专业在读硕士，本科毕业于武汉商学院英语翻译专业。具备扎实的中英文双语能力（英语专业八级），以及丰富的人文素养与跨文化视野。</p>
+          <p data-i18n="about.p2">曾在 LingoAce 担任 HR 招聘专员，深度参与国际化招聘全流程；同时拥有高校教务助理经验，熟悉教学运营与跨部门协作。亦曾参与香港、澳门及日本等交流项目，对跨文化沟通有切身理解。</p>
+          <p data-i18n="about.p3">对写作、表达与人际联结保持长期热情，曾为《品读武汉美食》一书撰稿并于 2024 年由武汉出版社出版。</p>
         </div>
       </div>
     </div>
@@ -48,27 +49,27 @@
 
   <section id="projects" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">实践成果</h2>
+      <h2 class="section-title" data-i18n="projects.title">实践成果</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <h3>《品读武汉美食》撰稿</h3>
-          <p>参与武汉市级出版物，撰写《生煎包与锅贴：舌尖上的江城双娇》一文，2024年12月由武汉出版社出版。</p>
+          <h3 data-i18n="projects.food.title">《品读武汉美食》撰稿</h3>
+          <p data-i18n="projects.food.desc">参与武汉市级出版物，撰写《生煎包与锅贴：舌尖上的江城双娇》一文，2024年12月由武汉出版社出版。</p>
           <div class="project-tags">
-            <span>写作</span><span>饮食文化</span><span>出版</span>
+            <span data-i18n="projects.food.tag1">写作</span><span data-i18n="projects.food.tag2">饮食文化</span><span data-i18n="projects.food.tag3">出版</span>
           </div>
         </div>
         <div class="project-card">
-          <h3>国际化招聘交付</h3>
-          <p>在 LingoAce 实习期间累计招聘27人，涵盖新加坡项目组课程顾问（全英文）、店铺运营等多个岗位，超量完成招聘目标。</p>
+          <h3 data-i18n="projects.hr.title">国际化招聘交付</h3>
+          <p data-i18n="projects.hr.desc">在 LingoAce 实习期间累计招聘27人，涵盖新加坡项目组课程顾问（全英文）、店铺运营等多个岗位，超量完成招聘目标。</p>
           <div class="project-tags">
-            <span>HR</span><span>英语面试</span><span>校园招聘</span>
+            <span data-i18n="projects.hr.tag1">HR</span><span data-i18n="projects.hr.tag2">英语面试</span><span data-i18n="projects.hr.tag3">校园招聘</span>
           </div>
         </div>
         <div class="project-card">
-          <h3>香港·澳门交流项目</h3>
-          <p>沉浸式考察香港立法会至赤柱等多元历史地标，与澳门大学优秀学子座谈交流，获优秀学员三等奖。</p>
+          <h3 data-i18n="projects.exchange.title">香港·澳门交流项目</h3>
+          <p data-i18n="projects.exchange.desc">沉浸式考察香港立法会至赤柱等多元历史地标，与澳门大学优秀学子座谈交流，获优秀学员三等奖。</p>
           <div class="project-tags">
-            <span>跨文化交流</span><span>学术考察</span><span>座谈</span>
+            <span data-i18n="projects.exchange.tag1">跨文化交流</span><span data-i18n="projects.exchange.tag2">学术考察</span><span data-i18n="projects.exchange.tag3">座谈</span>
           </div>
         </div>
       </div>
@@ -77,33 +78,33 @@
 
   <section id="skills" class="section">
     <div class="container">
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title" data-i18n="skills.title">能力</h2>
       <div class="skills-grid">
         <div class="skill-category">
-          <h3>语言能力</h3>
+          <h3 data-i18n="skills.language.title">语言能力</h3>
           <ul>
-            <li>英语专业八级 (TEM-8)</li>
-            <li>英语专业四级 (TEM-4)</li>
-            <li>大学英语六级 (CET-6 584)</li>
-            <li>普通话一级乙等</li>
+            <li data-i18n="skills.language.item1">英语专业八级 (TEM-8)</li>
+            <li data-i18n="skills.language.item2">英语专业四级 (TEM-4)</li>
+            <li data-i18n="skills.language.item3">大学英语六级 (CET-6 584)</li>
+            <li data-i18n="skills.language.item4">普通话一级乙等</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h3>专业领域</h3>
+          <h3 data-i18n="skills.professional.title">专业领域</h3>
           <ul>
-            <li>招聘与人才获取</li>
-            <li>教务运营管理</li>
-            <li>跨文化沟通</li>
-            <li>活动策划与执行</li>
+            <li data-i18n="skills.professional.item1">招聘与人才获取</li>
+            <li data-i18n="skills.professional.item2">教务运营管理</li>
+            <li data-i18n="skills.professional.item3">跨文化沟通</li>
+            <li data-i18n="skills.professional.item4">活动策划与执行</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h3>研究与写作</h3>
+          <h3 data-i18n="skills.writing.title">研究与写作</h3>
           <ul>
-            <li>学术论文撰写</li>
-            <li>出版级中文写作</li>
-            <li>中英双语翻译</li>
-            <li>史料整理与分析</li>
+            <li data-i18n="skills.writing.item1">学术论文撰写</li>
+            <li data-i18n="skills.writing.item2">出版级中文写作</li>
+            <li data-i18n="skills.writing.item3">中英双语翻译</li>
+            <li data-i18n="skills.writing.item4">史料整理与分析</li>
           </ul>
         </div>
       </div>
@@ -112,29 +113,29 @@
 
   <section id="contact" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-desc">开放交流与合作机会。无论你对历史、语言还是跨文化交流感兴趣，欢迎联系。</p>
+      <h2 class="section-title" data-i18n="contact.title">联系我</h2>
+      <p class="contact-desc" data-i18n="contact.desc">开放交流与合作机会。无论你对历史、语言还是跨文化交流感兴趣，欢迎联系。</p>
       <form class="contact-form" id="contact-form">
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name" data-i18n="contact.name">姓名</label>
           <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email" data-i18n="contact.email">邮箱</label>
           <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
+          <label for="message" data-i18n="contact.message">留言</label>
           <textarea id="message" name="message" rows="5" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-primary" data-i18n="contact.submit">发送消息</button>
       </form>
     </div>
   </section>
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Personal Portfolio. All rights reserved.</p>
+      <p data-i18n="footer.copy">&copy; 2026 丁文慧个人作品集。保留所有权利。</p>
     </div>
   </footer>
 

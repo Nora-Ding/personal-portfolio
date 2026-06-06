@@ -60,7 +60,7 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   list-style: none;
   margin-left: auto;
 }
@@ -243,6 +243,302 @@ body {
   font-weight: 500;
 }
 
+/* Travel Map */
+
+.travel-intro {
+  max-width: 680px;
+  margin: -20px auto 36px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.travel-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.travel-map {
+  min-height: 820px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, #f8fafc 0%, #eef2ff 100%);
+  padding: 24px;
+  overflow: hidden;
+}
+
+.map-shape {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(239, 246, 255, 0.92), rgba(236, 253, 245, 0.84));
+  box-shadow: inset 0 0 0 1px rgba(79, 70, 229, 0.12);
+}
+
+.leaflet-travel-map {
+  width: 100%;
+  min-height: 620px;
+  border-radius: inherit;
+  background: #eef2ff;
+  overflow: hidden;
+  border: 1px solid rgba(79, 70, 229, 0.12);
+}
+
+.leaflet-travel-map .leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-travel-map .leaflet-control-zoom {
+  border: 1px solid rgba(79, 70, 229, 0.14);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.leaflet-travel-map .leaflet-control-zoom a {
+  color: var(--color-primary);
+}
+
+.geojson-travel-svg {
+  display: block;
+  width: 100%;
+  min-height: 620px;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 16%, rgba(186, 230, 253, 0.78), transparent 28%),
+    radial-gradient(circle at 82% 78%, rgba(167, 243, 208, 0.68), transparent 30%),
+    #eef2ff;
+}
+
+.geojson-province {
+  fill: #e5e7eb;
+  fill-opacity: 0.34;
+  stroke: #ffffff;
+  stroke-width: 1.1;
+  cursor: pointer;
+  transition: fill 0.2s, fill-opacity 0.2s, stroke 0.2s, stroke-width 0.2s;
+}
+
+.geojson-province.is-visited {
+  fill: #4f46e5;
+  fill-opacity: 0.5;
+}
+
+.geojson-province.is-selected {
+  fill: #f97316;
+  fill-opacity: 0.72;
+  stroke: #ea580c;
+  stroke-width: 2.4;
+}
+
+.geojson-province:hover,
+.geojson-province:focus-visible {
+  stroke: #111827;
+  stroke-width: 2.4;
+  outline: none;
+}
+
+.geojson-city-group {
+  cursor: pointer;
+  outline: none;
+}
+
+.geojson-city-hit-area {
+  fill: transparent;
+  stroke: transparent;
+  pointer-events: all;
+}
+
+.geojson-city-dot {
+  fill: var(--city-color);
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.18));
+  transition: fill 0.2s, r 0.2s, stroke-width 0.2s;
+}
+
+.geojson-city-label {
+  fill: #172554;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  pointer-events: auto;
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-linejoin: round;
+  stroke-width: 4px;
+}
+
+.geojson-city-group:hover .geojson-city-dot,
+.geojson-city-group:focus-visible .geojson-city-dot {
+  stroke: #111827;
+  stroke-width: 3.5;
+}
+
+.geojson-city-group.is-selected .geojson-city-dot {
+  fill: #ef4444;
+  stroke-width: 3.5;
+}
+
+.geojson-city-group.is-selected .geojson-city-label {
+  fill: #991b1b;
+  font-size: 14px;
+}
+
+.travel-city-marker {
+  cursor: pointer;
+  filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.18));
+}
+
+.travel-city-tooltip,
+.travel-province-tooltip {
+  border: 0;
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: #172554;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+}
+
+.travel-city-tooltip::before,
+.travel-province-tooltip::before {
+  display: none;
+}
+
+.map-fallback {
+  display: grid;
+  min-height: 620px;
+  place-items: center;
+  padding: 24px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.map-city-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.map-source-note {
+  margin-top: 12px;
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.city-list-button {
+  min-height: 34px;
+  padding: 7px 9px;
+  border: 1px solid rgba(79, 70, 229, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.city-list-button:hover,
+.city-list-button.is-active {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.32);
+  transform: translateY(-1px);
+}
+
+.travel-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
+  min-height: 300px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.travel-photo {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  color: #fff;
+  background:
+    linear-gradient(135deg, var(--photo-primary, #4f46e5), rgba(17, 24, 39, 0.18)),
+    radial-gradient(circle at 78% 20%, var(--photo-secondary, #c7d2fe), transparent 34%),
+    linear-gradient(145deg, var(--photo-primary, #4f46e5), #111827);
+}
+
+.travel-photo span {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.travel-photo small {
+  margin-top: 4px;
+  font-weight: 600;
+  opacity: 0.82;
+}
+
+.travel-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 26px;
+}
+
+.travel-eyebrow {
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.travel-card h3 {
+  margin-top: 8px;
+  font-size: 1.8rem;
+}
+
+.travel-card-title {
+  margin-top: 8px;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.travel-card-desc {
+  margin-top: 12px;
+  color: var(--color-text-muted);
+}
+
+.travel-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.travel-tags span {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
 /* Skills */
 
 .skills-grid {
@@ -275,40 +571,58 @@ body {
 .contact-desc {
   text-align: center;
   color: var(--color-text-muted);
-  max-width: 500px;
+  max-width: 620px;
   margin: 0 auto 32px;
 }
 
-.contact-form {
-  max-width: 520px;
+.contact-methods {
+  max-width: 420px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px 14px;
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 92px;
+  padding: 20px;
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  font-family: inherit;
-  font-size: 1rem;
-  transition: border-color 0.2s;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-primary);
+.contact-method-icon {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.contact-method-label {
+  margin-bottom: 4px;
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.contact-method-value {
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-method-value:hover {
+  color: var(--color-primary);
 }
 
 /* Footer */
@@ -347,10 +661,11 @@ body {
 
   .nav-links {
     justify-content: center;
-    gap: 14px;
+    gap: 12px;
     margin-left: 0;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.86rem;
+    flex-wrap: wrap;
   }
 
   .language-toggle {
@@ -359,5 +674,74 @@ body {
 
   .section {
     padding: 56px 0;
+  }
+
+  .travel-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-map,
+  .travel-card {
+    min-height: auto;
+  }
+
+  .travel-map {
+    padding: 14px;
+  }
+
+  .map-shape {
+    min-height: 430px;
+  }
+
+  .leaflet-travel-map,
+  .geojson-travel-svg,
+  .map-fallback {
+    min-height: 430px;
+  }
+
+  .travel-card {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-photo {
+    min-height: 180px;
+  }
+
+  .map-city-list {
+    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+    gap: 7px;
+  }
+
+  .city-list-button {
+    min-height: 32px;
+    padding: 6px 7px;
+    font-size: 0.7rem;
+  }
+
+  .travel-city-tooltip {
+    font-size: 0.62rem;
+    padding: 2px 5px;
+  }
+
+  .geojson-city-label {
+    font-size: 13px;
+    stroke-width: 4.5px;
+  }
+
+  .geojson-city-group.is-selected .geojson-city-label {
+    font-size: 15px;
+  }
+
+  .travel-card-body {
+    padding: 22px;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method {
+    min-height: 84px;
+    padding: 16px;
   }
 }

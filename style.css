@@ -302,6 +302,14 @@ body {
   color: var(--color-primary);
 }
 
+.geojson-travel-svg .geojson-province,
+.geojson-travel-svg .geojson-city-group,
+.geojson-travel-svg .geojson-city-dot {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
 .geojson-travel-svg {
   display: block;
   width: 100%;

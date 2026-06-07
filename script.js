@@ -140,9 +140,10 @@ const travelPhoto = document.getElementById('travel-photo');
 const travelCityName = document.getElementById('travel-city-name');
 const travelCardTitle = document.getElementById('travel-card-title');
 const travelCardDesc = document.getElementById('travel-card-desc');
+const travelCardSections = document.getElementById('travel-card-sections');
 const travelTags = document.getElementById('travel-tags');
 let currentLanguage = localStorage.getItem('portfolio-language') || 'zh';
-let selectedCityId = 'wuhan';
+let selectedCityId = 'qingdao';
 let travelMap = null;
 let provinceLayer = null;
 let cityMarkerLayer = null;
@@ -155,41 +156,145 @@ const svgProvinceElements = new Map();
 const svgCityElements = new Map();
 
 const travelCities = [
-  { id: 'haerbin', zh: '哈尔滨', en: 'Harbin', province: '黑龙江省', lat: 45.8038, lng: 126.5349, tone: 'ice' },
-  { id: 'beijing', zh: '北京', en: 'Beijing', province: '北京市', lat: 39.9042, lng: 116.4074, tone: 'capital' },
-  { id: 'dalian', zh: '大连', en: 'Dalian', province: '辽宁省', lat: 38.914, lng: 121.6147, tone: 'coast' },
-  { id: 'qingdao', zh: '青岛', en: 'Qingdao', province: '山东省', lat: 36.0671, lng: 120.3826, tone: 'coast' },
-  { id: 'yantai', zh: '烟台', en: 'Yantai', province: '山东省', lat: 37.4638, lng: 121.4479, tone: 'coast' },
-  { id: 'weihai', zh: '威海', en: 'Weihai', province: '山东省', lat: 37.5131, lng: 122.1204, tone: 'coast' },
-  { id: 'rongcheng', zh: '荣成', en: 'Rongcheng', province: '山东省', lat: 37.1652, lng: 122.4877, tone: 'coast' },
-  { id: 'zibo', zh: '淄博', en: 'Zibo', province: '山东省', lat: 36.8135, lng: 118.055, tone: 'heritage' },
-  { id: 'zhengzhou', zh: '郑州', en: 'Zhengzhou', province: '河南省', lat: 34.7472, lng: 113.6249, tone: 'plain' },
-  { id: 'kaifeng', zh: '开封', en: 'Kaifeng', province: '河南省', lat: 34.7973, lng: 114.3076, tone: 'heritage' },
-  { id: 'pingdingshan', zh: '平顶山', en: 'Pingdingshan', province: '河南省', lat: 33.735, lng: 113.29, tone: 'plain' },
-  { id: 'nanjing', zh: '南京', en: 'Nanjing', province: '江苏省', lat: 32.0603, lng: 118.7969, tone: 'heritage' },
-  { id: 'shanghai', zh: '上海', en: 'Shanghai', province: '上海市', lat: 31.2304, lng: 121.4737, tone: 'coast' },
-  { id: 'jiujiang', zh: '九江', en: 'Jiujiang', province: '江西省', lat: 29.7051, lng: 116.0019, tone: 'river' },
-  { id: 'wuhan', zh: '武汉', en: 'Wuhan', province: '湖北省', lat: 30.5928, lng: 114.3055, tone: 'river' },
-  { id: 'huanggang', zh: '黄冈', en: 'Huanggang', province: '湖北省', lat: 30.4537, lng: 114.8724, tone: 'river' },
-  { id: 'jingzhou', zh: '荆州', en: 'Jingzhou', province: '湖北省', lat: 30.3352, lng: 112.2397, tone: 'heritage' },
-  { id: 'xianning', zh: '咸宁', en: 'Xianning', province: '湖北省', lat: 29.8413, lng: 114.3225, tone: 'river' },
-  { id: 'changsha', zh: '长沙', en: 'Changsha', province: '湖南省', lat: 28.2282, lng: 112.9388, tone: 'culture' },
-  { id: 'chengdu', zh: '成都', en: 'Chengdu', province: '四川省', lat: 30.5728, lng: 104.0668, tone: 'leisure' },
-  { id: 'chongzhou', zh: '崇州', en: 'Chongzhou', province: '四川省', lat: 30.6302, lng: 103.673, tone: 'leisure' },
-  { id: 'chongqing', zh: '重庆', en: 'Chongqing', province: '重庆市', lat: 29.563, lng: 106.5516, tone: 'mountain' },
-  { id: 'guiyang', zh: '贵阳', en: 'Guiyang', province: '贵州省', lat: 26.647, lng: 106.6302, tone: 'mountain' },
-  { id: 'kunming', zh: '昆明', en: 'Kunming', province: '云南省', lat: 25.0389, lng: 102.7183, tone: 'plateau' },
-  { id: 'dali', zh: '大理', en: 'Dali', province: '云南省', lat: 25.6065, lng: 100.2676, tone: 'plateau' },
-  { id: 'lijiang', zh: '丽江', en: 'Lijiang', province: '云南省', lat: 26.8721, lng: 100.2296, tone: 'plateau' },
-  { id: 'xishuangbanna', zh: '西双版纳', en: 'Xishuangbanna', province: '云南省', lat: 22.0086, lng: 100.7974, tone: 'tropical' },
-  { id: 'hangzhou', zh: '杭州', en: 'Hangzhou', province: '浙江省', lat: 30.2741, lng: 120.1551, tone: 'culture' },
-  { id: 'ningbo', zh: '宁波', en: 'Ningbo', province: '浙江省', lat: 29.8683, lng: 121.544, tone: 'coast' },
-  { id: 'shenzhen', zh: '深圳', en: 'Shenzhen', province: '广东省', lat: 22.5431, lng: 114.0579, tone: 'bay' },
-  { id: 'shanwei', zh: '汕尾', en: 'Shanwei', province: '广东省', lat: 22.7862, lng: 115.3753, tone: 'bay' },
-  { id: 'hongkong', zh: '香港', en: 'Hong Kong', province: '香港特别行政区', lat: 22.3193, lng: 114.1694, tone: 'bay' },
-  { id: 'macau', zh: '澳门', en: 'Macau', province: '澳门特别行政区', lat: 22.1987, lng: 113.5439, tone: 'bay' },
-  { id: 'sanya', zh: '三亚', en: 'Sanya', province: '海南省', lat: 18.2528, lng: 109.5119, tone: 'tropical' }
+  { id: 'haerbin', zh: '哈尔滨', en: 'Harbin', province: '黑龙江省', lat: 45.8038, lng: 126.5349, tone: 'ice', season: 'winter' },
+  { id: 'beijing', zh: '北京', en: 'Beijing', province: '北京市', lat: 39.9042, lng: 116.4074, tone: 'capital', season: 'winter' },
+  { id: 'dalian', zh: '大连', en: 'Dalian', province: '辽宁省', lat: 38.914, lng: 121.6147, tone: 'coast', season: 'autumn' },
+  {
+    id: 'qingdao',
+    zh: '青岛',
+    en: 'Qingdao',
+    province: '山东省',
+    lat: 36.0671,
+    lng: 120.3826,
+    tone: 'coast',
+    season: 'summer',
+    planning: {
+      zh: {
+        title: '夏季青岛滨海人文消费策划案',
+        desc: '以“海洋度假+老城人文+夜间消费”为主线，将栈桥湾、上街里/大鲍岛、八大关、奥帆中心与啤酒文化资源串联，形成面向暑期亲子、青年、入境游客和研学团队的复合型城市产品。',
+        sections: [
+          {
+            heading: '针对性背景分析',
+            items: [
+              '政策背景：对齐青岛建设国际滨海旅游目的地、文旅消费提振、海洋旅游壮大、入境旅游拓展和研学经济培育等方向。',
+              '市场研判：暑期滨海客流基础强，老城街区、音乐节演艺、海上旅游和文博研学共同带动“白天观光、夜间消费、二次复游”。',
+              '资源价值：青岛兼具山海城湾、跨海大桥、黄岛海岸线、德式建筑、里院街区、啤酒工业遗产、奥帆海洋场景与高校研学资源，具备从观光城市转向体验型目的地的条件。',
+              '客群画像：亲子避暑家庭重视安全与舒适，青年游客追求出片和夜生活，研学团队关注历史建筑与海洋科普，入境游客偏好可翻译、可支付、可串联的一日/半日产品。',
+              'SWOT：优势是滨海知名度和老城文化辨识度高；劣势是暑期拥堵、停留时长和消费转化不足；机会来自入境便利、演艺节会和海洋经济；威胁是同质化海滨城市竞争、天气扰动与旺季服务压力。'
+            ]
+          },
+          {
+            heading: '发展定位',
+            items: [
+              '对外名片：上合滨海人文会客厅、最青岛老城海岸漫游地、北方夏季海洋研学目的地。',
+              '评定路径：以老城滨海文旅廊道培育5A级景区创建支撑点，争创省级特色步行街、夜间文旅消费集聚区、海洋研学旅行基地等称号。',
+              '价值主张：不是单点打卡，而是把“看海、读城、听演出、喝啤酒、做研学”组织成可运营、可复购、可传播的城市体验。'
+            ]
+          },
+          {
+            heading: '策略思路',
+            items: [
+              '破局点一：以海串城，用海上巴士、跨海大桥体验、滨海步道和地铁接驳把分散景点变成连续动线。',
+              '破局点二：以城留人，把里院、德式建筑、啤酒文化和城市更新故事转化为导览、演艺、市集和研学脚本。',
+              '破局点三：以夜增收，围绕黄昏海岸、老城灯光、音乐演艺和啤酒消费设计夜游产品。',
+              '破局点四：以服务提质，补强多语导览、预约分流、亲子休憩、雨天备选和消费闭环。'
+            ]
+          },
+          {
+            heading: '实施方案',
+            items: [
+              '具体项目：推出“栈桥湾城市开场”“八大关建筑漫游”“上街里夜间人文消费”“奥帆海洋研学”“跨海大桥体验”“黄岛环岛游”“啤酒工业遗产微度假”七个项目包。',
+              '产品体系：半日精华线、亲子一日线、青年夜游线、入境游客City Walk线、跨海大桥观景线、黄岛环岛休闲线、研学两日线，统一票根权益和预约入口。',
+              '基础设施：设置多语导览牌、遮阳补水点、亲子洗手间、行李寄存、夜间照明、街区导视和海陆交通接驳提示。',
+              '运营思路：建立“政府统筹+街区运营商+景区场馆+酒店餐饮+演艺机构+交通服务商”的联动机制，用节会日历、票根联动、达人内容和社群复游券提升转化。'
+            ]
+          }
+        ],
+        tags: ['夏季', '专业策划', '滨海人文', '夜间消费', '研学产品']
+      },
+      en: {
+        title: 'Summer Coastal Humanities and Consumption Plan for Qingdao',
+        desc: 'A professional planning summary built around coastal leisure, old-town humanities, and night-time consumption, linking Zhanqiao Bay, Shangjieli/Dabaodao, Badaguan, Olympic Sailing Center, and beer culture into a summer product system.',
+        sections: [
+          {
+            heading: 'Targeted Background Analysis',
+            items: [
+              'Policy: aligned with Qingdao’s goals around an international coastal tourism destination, cultural-tourism consumption, marine tourism, inbound tourism, and study-tour products.',
+              'Market: summer coastal demand is strong, while old-town districts, performances, sea tours, museums, and study tours can extend dwell time and spending.',
+              'Resource value: Qingdao combines coast, mountains, the cross-sea bridge, Huangdao shoreline, historic architecture, courtyard districts, beer heritage, Olympic sailing assets, and marine education resources.',
+              'Audiences: family travelers need safety and comfort, young travelers seek photogenic night experiences, study groups value heritage and marine science, and inbound travelers need translatable routes and convenient services.',
+              'SWOT: strong city recognition and heritage identity; pressure from congestion and limited conversion; opportunities from inbound access, events, and marine economy; risks from similar coastal competitors, weather, and peak-season service load.'
+            ]
+          },
+          {
+            heading: 'Positioning',
+            items: [
+              'External identity: SCO coastal humanities reception room, “most Qingdao” old-town coastal walk, and northern China summer marine study-tour destination.',
+              'Recognition path: support 5A-level old-town coastal corridor development and pursue labels such as featured pedestrian district, night-time culture-tourism consumption cluster, and marine study-tour base.',
+              'Core promise: turn sightseeing, architecture, beer culture, performances, and study tours into an operable and repeatable city experience.'
+            ]
+          },
+          {
+            heading: 'Strategic Breakthroughs',
+            items: [
+              'Connect the city through the sea with sea buses, cross-sea bridge experiences, coastal walks, and metro transfers.',
+              'Keep visitors in the old town by converting architecture, courtyard life, beer heritage, and renewal stories into guided walks, performances, markets, and study scripts.',
+              'Grow night spending through sunset waterfront routes, old-town lighting, music events, and beer consumption.',
+              'Improve service with multilingual guides, reservation flow control, family rest points, rain plans, and closed-loop spending incentives.'
+            ]
+          },
+          {
+            heading: 'Implementation Plan',
+            items: [
+              'Projects: Zhanqiao Bay city opening, Badaguan architecture walk, Shangjieli night consumption, Olympic Sailing marine study tour, cross-sea bridge experience, Huangdao island-loop tour, and beer heritage micro-vacation.',
+              'Product system: half-day highlights, family one-day route, youth night route, inbound City Walk, cross-sea bridge scenic route, Huangdao leisure loop, and two-day study-tour package with shared ticket benefits.',
+              'Infrastructure: multilingual wayfinding, shade and water points, family restrooms, luggage storage, lighting, street signs, and sea-land transfer prompts.',
+              'Operations: a joint mechanism among government, district operators, scenic areas, hotels, restaurants, performance institutions, and transport service providers, driven by event calendars, ticket linkage, creator content, and return coupons.'
+            ]
+          }
+        ],
+        tags: ['Summer', 'Professional Plan', 'Coastal Humanities', 'Night Economy', 'Study Tours']
+      }
+    }
+  },
+  { id: 'yantai', zh: '烟台', en: 'Yantai', province: '山东省', lat: 37.4638, lng: 121.4479, tone: 'coast', season: 'autumn' },
+  { id: 'weihai', zh: '威海', en: 'Weihai', province: '山东省', lat: 37.5131, lng: 122.1204, tone: 'coast', season: 'summer' },
+  { id: 'rongcheng', zh: '荣成', en: 'Rongcheng', province: '山东省', lat: 37.1652, lng: 122.4877, tone: 'coast', season: 'summer' },
+  { id: 'zibo', zh: '淄博', en: 'Zibo', province: '山东省', lat: 36.8135, lng: 118.055, tone: 'heritage', season: 'summer' },
+  { id: 'zhengzhou', zh: '郑州', en: 'Zhengzhou', province: '河南省', lat: 34.7472, lng: 113.6249, tone: 'plain', season: 'spring' },
+  { id: 'kaifeng', zh: '开封', en: 'Kaifeng', province: '河南省', lat: 34.7973, lng: 114.3076, tone: 'heritage', season: 'spring' },
+  { id: 'pingdingshan', zh: '平顶山', en: 'Pingdingshan', province: '河南省', lat: 33.735, lng: 113.29, tone: 'plain', season: 'summer' },
+  { id: 'nanjing', zh: '南京', en: 'Nanjing', province: '江苏省', lat: 32.0603, lng: 118.7969, tone: 'heritage', season: 'autumn' },
+  { id: 'shanghai', zh: '上海', en: 'Shanghai', province: '上海市', lat: 31.2304, lng: 121.4737, tone: 'coast', season: 'autumn' },
+  { id: 'jiujiang', zh: '九江', en: 'Jiujiang', province: '江西省', lat: 29.7051, lng: 116.0019, tone: 'river', season: 'autumn' },
+  { id: 'wuhan', zh: '武汉', en: 'Wuhan', province: '湖北省', lat: 30.5928, lng: 114.3055, tone: 'river', season: 'summer' },
+  { id: 'huanggang', zh: '黄冈', en: 'Huanggang', province: '湖北省', lat: 30.4537, lng: 114.8724, tone: 'river', season: 'spring' },
+  { id: 'jingzhou', zh: '荆州', en: 'Jingzhou', province: '湖北省', lat: 30.3352, lng: 112.2397, tone: 'heritage', season: 'spring' },
+  { id: 'xianning', zh: '咸宁', en: 'Xianning', province: '湖北省', lat: 29.8413, lng: 114.3225, tone: 'river', season: 'winter' },
+  { id: 'changsha', zh: '长沙', en: 'Changsha', province: '湖南省', lat: 28.2282, lng: 112.9388, tone: 'culture', season: 'summer' },
+  { id: 'chengdu', zh: '成都', en: 'Chengdu', province: '四川省', lat: 30.5728, lng: 104.0668, tone: 'leisure', season: 'winter' },
+  { id: 'chongzhou', zh: '崇州', en: 'Chongzhou', province: '四川省', lat: 30.6302, lng: 103.673, tone: 'leisure', season: 'winter' },
+  { id: 'chongqing', zh: '重庆', en: 'Chongqing', province: '重庆市', lat: 29.563, lng: 106.5516, tone: 'mountain', season: 'winter' },
+  { id: 'guiyang', zh: '贵阳', en: 'Guiyang', province: '贵州省', lat: 26.647, lng: 106.6302, tone: 'mountain', season: 'spring' },
+  { id: 'kunming', zh: '昆明', en: 'Kunming', province: '云南省', lat: 25.0389, lng: 102.7183, tone: 'plateau', season: 'spring' },
+  { id: 'dali', zh: '大理', en: 'Dali', province: '云南省', lat: 25.6065, lng: 100.2676, tone: 'plateau', season: 'spring' },
+  { id: 'lijiang', zh: '丽江', en: 'Lijiang', province: '云南省', lat: 26.8721, lng: 100.2296, tone: 'plateau', season: 'spring' },
+  { id: 'xishuangbanna', zh: '西双版纳', en: 'Xishuangbanna', province: '云南省', lat: 22.0086, lng: 100.7974, tone: 'tropical', season: 'spring' },
+  { id: 'hangzhou', zh: '杭州', en: 'Hangzhou', province: '浙江省', lat: 30.2741, lng: 120.1551, tone: 'culture', season: 'autumn' },
+  { id: 'ningbo', zh: '宁波', en: 'Ningbo', province: '浙江省', lat: 29.8683, lng: 121.544, tone: 'coast', season: 'autumn' },
+  { id: 'shenzhen', zh: '深圳', en: 'Shenzhen', province: '广东省', lat: 22.5431, lng: 114.0579, tone: 'bay', season: 'summer' },
+  { id: 'shanwei', zh: '汕尾', en: 'Shanwei', province: '广东省', lat: 22.7862, lng: 115.3753, tone: 'bay', season: 'summer' },
+  { id: 'hongkong', zh: '香港', en: 'Hong Kong', province: '香港特别行政区', lat: 22.3193, lng: 114.1694, tone: 'bay', season: 'summer' },
+  { id: 'macau', zh: '澳门', en: 'Macau', province: '澳门特别行政区', lat: 22.1987, lng: 113.5439, tone: 'bay', season: 'summer' },
+  { id: 'sanya', zh: '三亚', en: 'Sanya', province: '海南省', lat: 18.2528, lng: 109.5119, tone: 'tropical', season: 'spring' }
 ];
+
+const seasonLabels = {
+  spring: { zh: '春季', en: 'Spring' },
+  summer: { zh: '夏季', en: 'Summer' },
+  autumn: { zh: '秋季', en: 'Autumn' },
+  winter: { zh: '冬季', en: 'Winter' }
+};
 
 const toneColors = {
   bay: ['#0f766e', '#99f6e4'],
@@ -269,6 +374,23 @@ function getCityName(city) {
   return currentLanguage === 'zh' ? city.zh : city.en;
 }
 
+function getSeasonLabel(city) {
+  return seasonLabels[city.season]?.[currentLanguage] || '';
+}
+
+function getCityPlanning(city) {
+  return city.planning?.[currentLanguage] || null;
+}
+
+function escapeHTML(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
 function getVisitedProvinceNames() {
   return new Set(travelCities.map(city => city.province));
 }
@@ -298,21 +420,32 @@ function renderTravelCard() {
   const city = getSelectedCity();
   const [primary, secondary] = toneColors[city.tone] || toneColors.river;
   const cityName = getCityName(city);
+  const planning = getCityPlanning(city);
+  const seasonLabel = getSeasonLabel(city);
 
   travelCityName.textContent = cityName;
-  travelCardTitle.textContent = dictionary['travel.cardTitle'];
-  travelCardDesc.textContent = dictionary['travel.cardDesc'];
-  travelTags.innerHTML = [
+  travelCardTitle.textContent = planning?.title || dictionary['travel.cardTitle'];
+  travelCardDesc.textContent = planning?.desc || dictionary['travel.cardDesc'];
+  travelCardSections.innerHTML = (planning?.sections || []).map(section => `
+    <section class="travel-planning-section">
+      <h4>${escapeHTML(section.heading)}</h4>
+      <ul>
+        ${section.items.map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+      </ul>
+    </section>
+  `).join('');
+  travelTags.innerHTML = (planning?.tags || [
+    seasonLabel,
     dictionary['travel.tagRoute'],
     dictionary['travel.tagCulture'],
     dictionary['travel.tagRecord']
-  ].map(tag => `<span>${tag}</span>`).join('');
+  ]).filter(Boolean).map(tag => `<span>${escapeHTML(tag)}</span>`).join('');
 
   travelPhoto.style.setProperty('--photo-primary', primary);
   travelPhoto.style.setProperty('--photo-secondary', secondary);
   travelPhoto.innerHTML = `
     <span>${cityName}</span>
-    <small>${dictionary['travel.photoLabel']}</small>
+    <small>${seasonLabel ? `${seasonLabel} · ` : ''}${dictionary['travel.photoLabel']}</small>
   `;
   renderTravelMapState();
   renderTravelCityList();

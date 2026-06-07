@@ -466,7 +466,7 @@ body {
 
 .travel-card {
   display: grid;
-  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
+  grid-template-columns: minmax(220px, 0.32fr) minmax(0, 0.68fr);
   min-height: 300px;
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -530,12 +530,43 @@ body {
   color: var(--color-text-muted);
 }
 
+.travel-card-sections {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.travel-planning-section {
+  padding-top: 14px;
+  border-top: 1px solid rgba(79, 70, 229, 0.14);
+}
+
+.travel-planning-section h4 {
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.travel-planning-section ul {
+  display: grid;
+  gap: 7px;
+  margin-top: 8px;
+  padding-left: 18px;
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.travel-planning-section li::marker {
+  color: var(--color-primary);
+}
+
 .travel-tags {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: auto;
+  margin-top: 24px;
   padding-top: 24px;
+  border-top: 1px solid rgba(79, 70, 229, 0.14);
 }
 
 .travel-tags span {

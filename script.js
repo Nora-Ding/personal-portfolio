@@ -154,6 +154,42 @@ const cityMarkers = new Map();
 const provinceLayers = new Map();
 const svgProvinceElements = new Map();
 const svgCityElements = new Map();
+const travelPhotoIndexes = {};
+
+const travelCityPhotos = {
+  qingdao: [
+    { src: 'assets/travel/qingdao-zhanqiao.jpg', zh: '青岛栈桥', en: 'Qingdao Zhanqiao Pier' },
+    { src: 'assets/travel/qingdao-boat.jpg', zh: '青岛游船', en: 'Qingdao sightseeing boat' },
+    { src: 'assets/travel/qingdao-bridge-sunset.jpg', zh: '青岛日落跨海大桥', en: 'Qingdao cross-sea bridge at sunset' },
+    { src: 'assets/travel/qingdao-huangdao-yumingzui.jpg', zh: '青岛黄岛鱼鸣嘴村', en: 'Yumingzui Village in Huangdao, Qingdao' }
+  ],
+  chongzhou: [
+    { src: 'assets/travel/chongzhou-landmark.jpg', zh: '崇州地标', en: 'Chongzhou landmark' },
+    { src: 'assets/travel/chongzhou-yanhua-pond.jpg', zh: '崇州罨画池', en: 'Yanhua Pond in Chongzhou' },
+    { src: 'assets/travel/chongzhou-garden.jpg', zh: '崇州园林景观', en: 'Chongzhou garden landscape' }
+  ],
+  xishuangbanna: [
+    { src: 'assets/travel/xishuangbanna-lanterns.jpg', zh: '泼水节万人孔明灯', en: 'Sky lanterns during the Water-Splashing Festival' },
+    { src: 'assets/travel/xishuangbanna-rainforest.jpg', zh: '西双版纳雨林徒步', en: 'Rainforest hiking in Xishuangbanna' }
+  ],
+  dali: [
+    { src: 'assets/travel/dali-flower-print.jpg', zh: '大理鲜花拓染', en: 'Flower printing workshop in Dali' },
+    { src: 'assets/travel/dali-erhai.jpg', zh: '大理洱海', en: 'Erhai Lake in Dali' },
+    { src: 'assets/travel/dali-jiama.jpg', zh: '大理非遗甲马版画', en: 'Jiama printmaking in Dali' }
+  ],
+  kunming: [
+    { src: 'assets/travel/kunming-dounan-flower-market.jpg', zh: '昆明斗南花市', en: 'Dounan Flower Market in Kunming' },
+    { src: 'assets/travel/kunming-dounan-flower-market-2.jpg', zh: '昆明斗南花市', en: 'Dounan Flower Market in Kunming' }
+  ],
+  lijiang: [
+    { src: 'assets/travel/lijiang-sunlit-mountain.jpg', zh: '丽江日照金山', en: 'Sunlit snow mountain in Lijiang' },
+    { src: 'assets/travel/lijiang-naxi-script.jpg', zh: '丽江纳西部落象形文字', en: 'Naxi pictographic script in Lijiang' },
+    { src: 'assets/travel/lijiang-costume-photo.jpg', zh: '丽江民族服饰旅拍', en: 'Ethnic costume photo experience in Lijiang' }
+  ],
+  wuhan: [
+    { src: 'assets/travel/wuhan-riverfront.jpg', zh: '武汉江滩', en: 'Wuhan riverfront' }
+  ]
+};
 
 const travelCities = [
   { id: 'haerbin', zh: '哈尔滨', en: 'Harbin', province: '黑龙江省', lat: 45.8038, lng: 126.5349, tone: 'ice', season: 'winter' },
@@ -1250,6 +1286,48 @@ function renderTravelCityList() {
   `).join('');
 }
 
+function getTravelPhotoCaption(photo) {
+  return photo?.[currentLanguage] || photo?.zh || photo?.en || '';
+}
+
+function getSelectedPhotoIndex(cityId, photoCount) {
+  const storedIndex = travelPhotoIndexes[cityId] || 0;
+  return photoCount ? ((storedIndex % photoCount) + photoCount) % photoCount : 0;
+}
+
+function renderTravelPhoto(city, cityName, seasonLabel, primary, secondary) {
+  const dictionary = translations[currentLanguage];
+  const photos = travelCityPhotos[city.id] || [];
+  const photoIndex = getSelectedPhotoIndex(city.id, photos.length);
+
+  travelPhoto.style.setProperty('--photo-primary', primary);
+  travelPhoto.style.setProperty('--photo-secondary', secondary);
+
+  if (!photos.length) {
+    travelPhoto.innerHTML = `
+      <span>${cityName}</span>
+      <small>${seasonLabel ? `${seasonLabel} · ` : ''}${dictionary['travel.photoLabel']}</small>
+    `;
+    return;
+  }
+
+  const photo = photos[photoIndex];
+  const caption = getTravelPhotoCaption(photo);
+  const hasMultiplePhotos = photos.length > 1;
+
+  travelPhoto.innerHTML = `
+    <img class="travel-photo-image" src="${escapeHTML(photo.src)}" alt="${escapeHTML(caption || cityName)}">
+    <div class="travel-photo-overlay">
+      <span>${escapeHTML(caption || cityName)}</span>
+      <small>${seasonLabel ? `${escapeHTML(seasonLabel)} · ` : ''}${photoIndex + 1}/${photos.length}</small>
+    </div>
+    ${hasMultiplePhotos ? `
+      <button class="travel-photo-control travel-photo-control-prev" type="button" data-photo-step="-1" aria-label="${currentLanguage === 'zh' ? '上一张图片' : 'Previous photo'}" title="${currentLanguage === 'zh' ? '上一张' : 'Previous'}">‹</button>
+      <button class="travel-photo-control travel-photo-control-next" type="button" data-photo-step="1" aria-label="${currentLanguage === 'zh' ? '下一张图片' : 'Next photo'}" title="${currentLanguage === 'zh' ? '下一张' : 'Next'}">›</button>
+    ` : ''}
+  `;
+}
+
 function renderTravelCard() {
   const dictionary = translations[currentLanguage];
   const city = getSelectedCity();
@@ -1282,14 +1360,21 @@ function renderTravelCard() {
     dictionary['travel.tagRecord']
   ]).filter(Boolean).map(tag => `<span>${escapeHTML(tag)}</span>`).join('');
 
-  travelPhoto.style.setProperty('--photo-primary', primary);
-  travelPhoto.style.setProperty('--photo-secondary', secondary);
-  travelPhoto.innerHTML = `
-    <span>${cityName}</span>
-    <small>${seasonLabel ? `${seasonLabel} · ` : ''}${dictionary['travel.photoLabel']}</small>
-  `;
+  renderTravelPhoto(city, cityName, seasonLabel, primary, secondary);
   renderTravelMapState();
   renderTravelCityList();
+}
+
+function changeTravelPhoto(step) {
+  const city = getSelectedCity();
+  const photos = travelCityPhotos[city.id] || [];
+  if (photos.length <= 1) {
+    return;
+  }
+
+  const currentIndex = getSelectedPhotoIndex(city.id, photos.length);
+  travelPhotoIndexes[city.id] = currentIndex + step;
+  renderTravelCard();
 }
 
 function selectTravelCity(cityId) {
@@ -1838,7 +1923,17 @@ function handleTravelCityClick(event) {
   }
 }
 
+function handleTravelPhotoClick(event) {
+  const control = event.target.closest('.travel-photo-control');
+  if (!control) {
+    return;
+  }
+
+  changeTravelPhoto(Number(control.dataset.photoStep) || 0);
+}
+
 travelCityList.addEventListener('click', handleTravelCityClick);
+travelPhoto.addEventListener('click', handleTravelPhotoClick);
 
 languageToggle.addEventListener('click', () => {
   setLanguage(currentLanguage === 'zh' ? 'en' : 'zh');

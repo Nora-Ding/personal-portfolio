@@ -1086,7 +1086,11 @@ function getSeasonLabel(city) {
 
 function getCityPlanning(city) {
   const sourceRecord = city.planning || winterPlanningRecords[city.id] || springPlanningRecords[city.id] || summerPlanningRecords[city.id] || autumnPlanningRecords[city.id];
-  return sourceRecord?.[currentLanguage] || sourceRecord?.zh || null;
+  const localizedRecord = sourceRecord?.[currentLanguage];
+  if (localizedRecord?.sections?.length) {
+    return localizedRecord;
+  }
+  return sourceRecord?.zh || localizedRecord || null;
 }
 
 function escapeHTML(value) {
@@ -1098,10 +1102,127 @@ function escapeHTML(value) {
     .replaceAll("'", '&#039;');
 }
 
-function renderFormattedPlanningText(value) {
-  return escapeHTML(value)
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const highlightTermSuffixes = [
+  '大世界',
+  '大教堂',
+  '中央大街',
+  '陈列馆',
+  '博物院',
+  '博物馆',
+  '古城',
+  '古镇',
+  '古商城',
+  '文化区',
+  '度假区',
+  '旅游区',
+  '风景区',
+  '景区',
+  '公园',
+  '江滩',
+  '大桥',
+  '书院',
+  '夜市',
+  '花市',
+  '大学',
+  '乐园',
+  '半岛',
+  '海滩',
+  '正滩',
+  '老外滩',
+  '西双景'
+];
+
+const genericHighlightTerms = new Set([
+  '主题乐园',
+  '冰雪景区',
+  '景区',
+  '博物馆',
+  '风景区',
+  '度假区',
+  '旅游区'
+]);
+
+const highlightTermNoisePattern = /(重点|覆盖|培育|动线|同质化|[0-9]A级)/;
+
+function getPlanningPlainText(planning) {
+  return [
+    planning?.desc || '',
+    ...(planning?.sections || []).flatMap(section => section.items || [])
+  ].join(' ');
+}
+
+function hasManualHighlights(planning) {
+  return getPlanningPlainText(planning).includes('__');
+}
+
+function normalizeHighlightTerm(term) {
+  return String(term)
+    .replace(/^(串联|联动|围绕|推出|打造|提供|承接|形成|强化|补足|培育|适合|以|用|把|将)+/, '')
+    .replace(/^(青年游客偏好|亲子家庭关注|银发游客适合|游客对|威胁是|优势是|劣势是|机会是|同质化)+/, '');
+}
+
+function getAttractionHighlightTerms(planning) {
+  const suffixPattern = highlightTermSuffixes.map(escapeRegExp).join('|');
+  const termPattern = new RegExp(`([\\u4e00-\\u9fa5A-Za-z0-9·（）()]{2,18}(?:${suffixPattern}))`, 'g');
+  return [...new Set(
+    getPlanningPlainText(planning)
+      .split(/[，。；：、\s“”"（）()]+|和|与|及/g)
+      .filter(part => !/(SWOT|威胁|优势|劣势|机会)/.test(part))
+      .flatMap(part => [...part.matchAll(termPattern)].map(match => normalizeHighlightTerm(match[1])))
+      .filter(term => term.length >= 3 && term.length <= 18 && !genericHighlightTerms.has(term) && !highlightTermNoisePattern.test(term))
+  )];
+}
+
+function getAutoHighlightTerms(city, planning, seasonLabel) {
+  const excludedTerms = new Set([
+    city.zh,
+    city.en,
+    seasonLabel,
+    seasonLabels[city.season]?.zh,
+    seasonLabels[city.season]?.en
+  ].filter(Boolean));
+
+  return [
+    ...getAttractionHighlightTerms(planning),
+    ...(planning?.tags || [])
+  ]
+    .filter(term => term && !excludedTerms.has(term) && String(term).trim().length > 1)
+    .slice(0, 5);
+}
+
+function applyAutoHighlights(value, highlightedTerms, autoHighlightTerms) {
+  return autoHighlightTerms.reduce((html, term) => {
+    if (highlightedTerms.has(term)) {
+      return html;
+    }
+
+    const escapedTerm = escapeHTML(term);
+    const pattern = new RegExp(escapeRegExp(escapedTerm));
+    if (!pattern.test(html)) {
+      return html;
+    }
+
+    highlightedTerms.add(term);
+    return html.replace(pattern, `<u>${escapedTerm}</u>`);
+  }, value);
+}
+
+function renderFormattedPlanningText(value, highlightedTerms = new Set(), autoHighlightTerms = []) {
+  const formattedValue = escapeHTML(value)
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/__([^_]+)__/g, '<u>$1</u>')
+    .replace(/__([^_]+)__/g, (_, term) => {
+      if (highlightedTerms.has(term)) {
+        return term;
+      }
+      highlightedTerms.add(term);
+      return `<u>${term}</u>`;
+    });
+
+  return applyAutoHighlights(formattedValue, highlightedTerms, autoHighlightTerms)
     .replace(/^([^：:]{2,18})([：:])/, '<strong class="planning-key-label">$1$2</strong>');
 }
 
@@ -1136,17 +1257,21 @@ function renderTravelCard() {
   const cityName = getCityName(city);
   const planning = getCityPlanning(city);
   const seasonLabel = getSeasonLabel(city);
+  const highlightedTerms = new Set();
+  const autoHighlightTerms = hasManualHighlights(planning)
+    ? []
+    : getAutoHighlightTerms(city, planning, seasonLabel);
 
   travelCityName.textContent = cityName;
   travelCardTitle.textContent = planning?.title || dictionary['travel.cardTitle'];
   travelCardDesc.innerHTML = planning?.desc
-    ? renderFormattedPlanningText(planning.desc)
+    ? renderFormattedPlanningText(planning.desc, highlightedTerms, autoHighlightTerms)
     : escapeHTML(dictionary['travel.cardDesc']);
   travelCardSections.innerHTML = (planning?.sections || []).map(section => `
     <section class="travel-planning-section">
       <h4>${escapeHTML(section.heading)}</h4>
       <ul>
-        ${section.items.map(item => `<li>${renderFormattedPlanningText(item)}</li>`).join('')}
+        ${section.items.map(item => `<li>${renderFormattedPlanningText(item, highlightedTerms, autoHighlightTerms)}</li>`).join('')}
       </ul>
     </section>
   `).join('');

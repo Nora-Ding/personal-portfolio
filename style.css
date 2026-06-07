@@ -528,6 +528,7 @@ body {
 .travel-card-desc {
   margin-top: 12px;
   color: var(--color-text-muted);
+  font-weight: 700;
 }
 
 .travel-card-sections {
@@ -568,11 +569,9 @@ body {
 
 .travel-card-desc u,
 .travel-planning-section u {
-  color: var(--color-primary);
-  font-weight: 800;
-  text-decoration-color: rgba(79, 70, 229, 0.38);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
 }
 
 .travel-tags {

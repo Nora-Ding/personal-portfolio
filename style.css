@@ -560,6 +560,21 @@ body {
   color: var(--color-primary);
 }
 
+.travel-card-desc strong,
+.travel-planning-section strong {
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.travel-card-desc u,
+.travel-planning-section u {
+  color: var(--color-primary);
+  font-weight: 800;
+  text-decoration-color: rgba(79, 70, 229, 0.38);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 .travel-tags {
   display: flex;
   gap: 8px;

@@ -296,6 +296,345 @@ const seasonLabels = {
   winter: { zh: '冬季', en: 'Winter' }
 };
 
+const winterPlanningRecords = {
+  haerbin: {
+    zh: {
+      title: '冬季哈尔滨冰雪人文策划案',
+      desc: '以“冰雪奇观+城市建筑+历史记忆+东北生活方式”为主线，串联冰雪大世界、索菲亚大教堂、中央大街、日本731部队罪证陈列馆与冬季饮食体验，形成兼具观赏性、教育性和生活烟火气的北国冬游产品。',
+      sections: [
+        {
+          heading: '针对性背景分析',
+          items: [
+            '政策背景：顺应冰雪经济、冬季文旅消费和城市国际传播需求，把哈尔滨冬季高流量转化为可停留、可学习、可复游的目的地体验。',
+            '市场研判：冰雪大世界具备强引流能力，但游客对保暖、排队、夜间交通、餐饮补给和室内休整依赖高，需要用城市线路分散峰值压力。',
+            '资源价值：冰雪大世界提供视觉爆点，索菲亚大教堂和中央大街承载欧陆建筑记忆，日本731部队罪证陈列馆承担历史教育功能，东北饮食和洗浴中心补足生活方式体验。',
+            '客群画像：亲子家庭关注冰雪游乐和安全保暖，青年游客追求夜景出片与美食打卡，研学团队重视历史教育，南方游客需要低门槛防寒指引。',
+            'SWOT：优势是冰雪品牌全国辨识度高；劣势是旺季拥堵和户外低温体验门槛；机会是冰雪赛事、社媒传播和研学需求；威胁是同质化冰雪景区竞争与极端天气影响。'
+          ]
+        },
+        {
+          heading: '发展定位',
+          items: [
+            '对外名片：中国冬季冰雪生活方式首站、北方历史记忆与冰雪艺术会客厅。',
+            '评定路径：以冰雪大世界为核心引擎，联动中央大街历史文化街区、索菲亚大教堂周边公共空间和爱国主义教育基地，培育冬季文旅消费集聚区与研学旅行示范线路。',
+            '价值主张：不只看冰雕，而是让游客完成“赏冰雪、读建筑、记历史、吃东北、泡洗浴”的完整北方冬日体验。'
+          ]
+        },
+        {
+          heading: '策略思路',
+          items: [
+            '破局点一：冷热结合，把冰雪大世界夜游与索菲亚大教堂、中央大街日间建筑漫游进行时段错峰。',
+            '破局点二：轻重并置，将日本731部队罪证陈列馆纳入研学与历史教育模块，用庄重内容提升线路人文深度。',
+            '破局点三：以食留客，围绕冰糖葫芦、铁锅炖、冻梨、东北麻辣烫、烤冷面、锅包肉、马迭尔冰棍形成城市味觉清单。',
+            '破局点四：以洗浴中心作为北方特色休整场景，解决冬季游的体力恢复、社交体验和夜间延时消费。'
+          ]
+        },
+        {
+          heading: '实施方案',
+          items: [
+            '具体项目：推出“冰雪大世界夜游”“索菲亚大教堂光影漫步”“中央大街建筑与美食线”“731历史记忆研学线”“东北洗浴生活体验”五个项目包。',
+            '产品体系：亲子冰雪一日线、青年夜景美食线、历史研学两日线、南方游客保暖友好线，统一提供防寒提示、交通接驳和餐饮推荐。',
+            '基础设施：增设暖房休息点、热饮补给、寄存服务、分时预约、夜间返程指引和多语导览，重点覆盖冰雪大世界至中央大街动线。',
+            '运营思路：联动景区、街区餐饮、洗浴中心、酒店和研学机构，用套票权益、美食地图、打卡任务和错峰夜游提升停留时间。'
+          ]
+        }
+      ],
+      tags: ['冬季', '冰雪旅游', '历史教育', '东北饮食', '北方生活']
+    },
+    en: {
+      title: 'Winter Ice-Snow Humanities Plan for Harbin',
+      desc: 'A winter plan linking Harbin Ice-Snow World, Saint Sophia Cathedral, Central Street, the Exhibition Hall of Evidence of Crimes Committed by Unit 731, local food, and northern bathhouse culture.',
+      sections: [
+        { heading: 'Targeted Background Analysis', items: ['Policy: convert ice-snow economy traffic into deeper winter tourism and study-tour experiences.', 'Market: strong demand is concentrated at night and outdoors, so warm rest points, transport, and food routes are critical.', 'Resource value: ice art, European-style architecture, historical education, local cuisine, and bathhouse life create a complete winter city narrative.', 'Audiences: families, young travelers, study groups, and southern visitors with different needs around warmth, safety, learning, and social media sharing.', 'SWOT: high winter brand recognition; challenges from cold and crowding; opportunities from ice-snow culture and study tours; risks from weather and similar destinations.'] },
+        { heading: 'Positioning', items: ['External identity: China’s first stop for winter ice-snow lifestyle and northern historical memory.', 'Recognition path: connect Ice-Snow World, Central Street, Sophia Cathedral, and patriotic education resources into a winter consumption and study-tour route.', 'Core promise: see ice art, read architecture, remember history, taste Northeast food, and experience local bathhouse culture.'] },
+        { heading: 'Strategic Breakthroughs', items: ['Combine cold outdoor highlights with warm indoor recovery.', 'Balance spectacular ice scenes with serious historical education.', 'Use candied hawthorn, iron-pot stew, frozen pear, Northeast malatang, grilled cold noodles, guobaorou, and Madieer popsicles as a taste map.', 'Turn bathhouses into a practical recovery and local lifestyle product.'] },
+        { heading: 'Implementation Plan', items: ['Projects: Ice-Snow World night tour, Sophia light walk, Central Street food and architecture route, Unit 731 study route, and Northeast bathhouse experience.', 'Product system: family ice-snow day route, youth night-food route, two-day history study route, and cold-weather friendly route.', 'Infrastructure: warming rooms, hot drinks, lockers, timed reservations, night transport guidance, and multilingual signs.', 'Operations: link scenic areas, street restaurants, bathhouses, hotels, and study-tour institutions through bundles, food maps, check-in tasks, and off-peak night tours.'] }
+      ],
+      tags: ['Winter', 'Ice-Snow', 'History', 'Northeast Food', 'Local Life']
+    }
+  },
+  beijing: {
+    zh: {
+      title: '冬季北京古都亲子活力策划案',
+      desc: '以“古都中轴+皇家园林+长城雪景+环球游乐”为主线，将故宫、天坛、颐和园、长城与北京环球影城度假区组合成面向亲子、青年和入境游客的冬季复合线路。',
+      sections: [
+        {
+          heading: '针对性背景分析',
+          items: [
+            '政策背景：对齐北京国际消费中心城市、全国文化中心和文旅消费品牌建设，把世界遗产、城市副中心和主题娱乐资源形成联动。',
+            '市场研判：冬季北京兼具文化观光和室内外游乐需求，传统景点适合低温慢游，北京环球影城度假区可承接亲子与青年高频娱乐消费。',
+            '资源价值：故宫强化古都叙事，天坛体现礼制文化，颐和园承载皇家园林美学，长城提供冬季山地景观，北京环球影城度假区补足国际化主题游乐。',
+            '客群画像：亲子家庭追求轻松游乐与教育结合，青年游客偏好主题乐园和城市打卡，银发游客关注文化深度，入境游客需要高识别度经典线路。',
+            'SWOT：优势是世界级文化资源密集；劣势是景点分散和冬季体感门槛；机会是中轴线传播、冰雪消费和主题乐园带动；威胁是预约压力、交通拥堵和同质化一日游。'
+          ]
+        },
+        {
+          heading: '发展定位',
+          items: [
+            '对外名片：世界古都冬季文化会客厅、亲子青年双友好的国际都市度假目的地。',
+            '评定路径：围绕北京中轴线、世界遗产和城市副中心消费区，培育“古都文化+主题娱乐+冬季微度假”精品线路。',
+            '价值主张：把北京从“景点清单”转化为“白天读古都、傍晚赏城市、整日玩环球”的多层次体验。'
+          ]
+        },
+        {
+          heading: '策略思路',
+          items: [
+            '破局点一：以中轴线讲古都，把故宫、天坛与城市秩序叙事串成可理解的文化路线。',
+            '破局点二：以皇家园林和长城补景观，设置颐和园冬日园林线与长城雪景线。',
+            '破局点三：以北京环球影城度假区承接亲子与青年游乐需求，形成文化观光之外的高活力产品。',
+            '破局点四：以预约和交通设计降低压力，用分日组合、地铁接驳和错峰入园提升体验。'
+          ]
+        },
+        {
+          heading: '实施方案',
+          items: [
+            '具体项目：推出“故宫古都叙事”“天坛礼制研学”“颐和园冬日园林”“长城雪景行”“北京环球影城度假区亲子青年游乐”五个项目包。',
+            '产品体系：古都文化一日线、亲子环球两日线、青年摄影与乐园线、入境游客经典三日线、冬季长城微度假线。',
+            '基础设施：强化预约提醒、低温排队提示、亲子休息点、双语导览、地铁换乘图和冬季户外保暖指引。',
+            '运营思路：联动博物馆、公园、长城景区、环球度假区、酒店和交通平台，用主题护照、亲子任务卡和冬季限定内容提升复游。'
+          ]
+        }
+      ],
+      tags: ['冬季', '古都文化', '亲子游乐', '青年旅行', '环球影城']
+    },
+    en: {
+      title: 'Winter Ancient Capital and Family Fun Plan for Beijing',
+      desc: 'A winter route combining the Forbidden City, Temple of Heaven, Summer Palace, Great Wall, and Universal Beijing Resort for families, young travelers, and inbound visitors.',
+      sections: [
+        { heading: 'Targeted Background Analysis', items: ['Policy: align Beijing’s national cultural center role with international consumption and tourism brands.', 'Market: winter demand spans cultural sightseeing and indoor-outdoor entertainment.', 'Resource value: imperial city heritage, ritual culture, royal gardens, Great Wall scenery, and Universal Beijing Resort create a broad product mix.', 'Audiences: families, young travelers, older cultural visitors, and inbound tourists.', 'SWOT: dense world-class heritage; challenges from distance, cold, and reservations; opportunities from axis-city storytelling and theme-park consumption.'] },
+        { heading: 'Positioning', items: ['External identity: winter cultural reception room of a world ancient capital and an international family-friendly urban destination.', 'Recognition path: build premium routes around the Central Axis, world heritage sites, and the city sub-center consumption area.', 'Core promise: read the ancient capital by day and add high-energy resort entertainment through Universal Beijing Resort.'] },
+        { heading: 'Strategic Breakthroughs', items: ['Use the Central Axis to connect Forbidden City and Temple of Heaven narratives.', 'Use the Summer Palace and Great Wall for winter landscapes.', 'Use Universal Beijing Resort for family and youth entertainment.', 'Reduce friction through reservations, transit planning, and off-peak route design.'] },
+        { heading: 'Implementation Plan', items: ['Projects: Forbidden City narrative, Temple of Heaven study route, Summer Palace winter garden, Great Wall snow-view route, and Universal Beijing family-youth entertainment package.', 'Product system: one-day ancient capital route, two-day family Universal route, youth photography and theme-park route, inbound three-day classic route, and winter Great Wall micro-vacation.', 'Infrastructure: reservation reminders, cold-weather queue tips, family rest points, bilingual guides, metro transfer maps, and winter outdoor guidance.', 'Operations: connect museums, parks, Great Wall scenic areas, Universal Beijing Resort, hotels, and transport platforms through theme passports and seasonal content.'] }
+      ],
+      tags: ['Winter', 'Ancient Capital', 'Family Travel', 'Youth Travel', 'Universal Beijing']
+    }
+  },
+  xianning: {
+    zh: {
+      title: '冬季咸宁温泉人文策划案',
+      desc: '以“历史人文+天然温泉+雪场滑雪”为主线，把咸宁冬季康养、三国赤壁文化、桂花城市记忆与冰雪娱乐组织成轻度假产品。',
+      sections: [
+        {
+          heading: '针对性背景分析',
+          items: [
+            '政策背景：契合湖北冬季文旅消费、温泉康养和近郊微度假需求，突出咸宁作为武汉都市圈休闲目的地的承接能力。',
+            '市场研判：冬季游客偏好“泡温泉+短途休闲”，若加入雪场滑雪和历史人文内容，可从单一康养升级为家庭与青年都愿意停留的组合产品。',
+            '资源价值：天然温泉是核心吸引，赤壁等历史人文资源提供叙事深度，冬季雪场和滑雪娱乐增强年轻客群参与感。',
+            '客群画像：武汉及周边家庭偏好周末康养，青年游客关注滑雪和社交，银发游客重视温泉疗愈，研学团队可围绕三国文化展开。',
+            'SWOT：优势是温泉资源稳定且离核心客源近；劣势是城市知名度弱于大型景区；机会是冬季康养和滑雪热；威胁是周边温泉产品同质化。'
+          ]
+        },
+        {
+          heading: '发展定位',
+          items: [
+            '对外名片：武汉都市圈冬季温泉康养会客厅、历史人文与冰雪娱乐复合微度假地。',
+            '评定路径：打造温泉康养示范线路、亲子滑雪体验基地和三国历史文化研学产品。',
+            '价值主张：把“泡一晚温泉”升级为“读一段历史、滑一次雪、住一晚温泉”的冬季短假。'
+          ]
+        },
+        {
+          heading: '策略思路',
+          items: [
+            '破局点一：温泉做底盘，用住宿、私汤、理疗和夜间休闲稳定客单与停留。',
+            '破局点二：历史人文做内容，把赤壁三国叙事、地方桂花文化和城市记忆转化为导览脚本。',
+            '破局点三：雪场做活力，用滑雪、戏雪和亲子冰雪课堂补足冬季娱乐。',
+            '破局点四：近郊微度假做转化，以周五晚到周日午的短周期产品适配武汉客源。'
+          ]
+        },
+        {
+          heading: '实施方案',
+          items: [
+            '具体项目：推出“天然温泉疗愈夜”“赤壁历史人文研学”“雪场滑雪娱乐”“桂花城市慢游”四个项目包。',
+            '产品体系：亲子温泉滑雪两日线、青年滑雪社交线、银发康养线、历史人文研学线。',
+            '基础设施：完善温泉酒店接驳、雪场装备租赁、亲子更衣休息、温泉安全提示、夜间导视和周末停车组织。',
+            '运营思路：联动温泉酒店、雪场、历史景区和本地餐饮，用周末套票、亲子课程和季节限定活动提升复购。'
+          ]
+        }
+      ],
+      tags: ['冬季', '天然温泉', '历史人文', '雪场滑雪', '微度假']
+    },
+    en: {
+      title: 'Winter Hot Spring and Humanities Plan for Xianning',
+      desc: 'A short-stay winter plan combining historical humanities, natural hot springs, ski-field entertainment, and regional wellness travel.',
+      sections: [
+        { heading: 'Targeted Background Analysis', items: ['Policy: fit winter consumption, wellness tourism, and Wuhan metropolitan micro-vacation demand.', 'Market: hot springs are the base, while skiing and history add family and youth appeal.', 'Resource value: natural hot springs, Three Kingdoms culture, local osmanthus memory, and snow-field activities.', 'Audiences: nearby families, young skiers, wellness travelers, and study groups.', 'SWOT: stable hot-spring resources and proximity to Wuhan; weaker national visibility; opportunities from wellness and skiing; risk from similar hot-spring products.'] },
+        { heading: 'Positioning', items: ['External identity: winter hot-spring wellness reception room of the Wuhan metropolitan area.', 'Recognition path: build wellness, parent-child skiing, and Three Kingdoms study-tour products.', 'Core promise: read history, ski once, and stay overnight in a hot-spring town.'] },
+        { heading: 'Strategic Breakthroughs', items: ['Use hot springs as the stay-and-spend base.', 'Use historical humanities as storytelling content.', 'Use ski fields for winter participation.', 'Use weekend micro-vacation timing for nearby conversion.'] },
+        { heading: 'Implementation Plan', items: ['Projects: natural hot-spring healing night, Chibi historical study tour, ski-field entertainment, and osmanthus city slow walk.', 'Product system: family hot-spring ski route, youth ski social route, senior wellness route, and historical study route.', 'Infrastructure: hotel transfers, equipment rental, family changing rooms, safety tips, night signs, and parking organization.', 'Operations: connect hotels, ski fields, historical sites, and local dining through weekend bundles and seasonal courses.'] }
+      ],
+      tags: ['Winter', 'Hot Springs', 'Humanities', 'Skiing', 'Micro-Vacation']
+    }
+  },
+  chengdu: {
+    zh: {
+      title: '冬季成都国际熊猫休闲策划案',
+      desc: '以“国际化城市体验+大熊猫基地+慢生活美食”为主线，组织成都冬季亲子、青年和入境游客的城市休闲产品。',
+      sections: [
+        {
+          heading: '针对性背景分析',
+          items: [
+            '政策背景：围绕成都国际消费中心城市、公园城市和入境友好型目的地建设，突出国际化传播与城市休闲体验。',
+            '市场研判：冬季成都气候相对温和，大熊猫基地具备稳定亲子吸引力，茶馆、火锅、小吃和街区漫游适合低压力城市度假。',
+            '资源价值：大熊猫基地是全球识别度最高的生态名片，宽窄巷子、锦里、太古里、人民公园和川菜文化构成国际化与在地生活并存的体验。',
+            '客群画像：亲子家庭关注熊猫和科普，青年游客偏好街区、咖啡、夜生活和美食，入境游客需要多语导览和便捷支付，商务客可转化为城市短游。',
+            'SWOT：优势是国际知名度、熊猫资源和生活方式强；劣势是热门点位拥挤；机会是入境恢复和城市品牌传播；威胁是同类网红街区体验趋同。'
+          ]
+        },
+        {
+          heading: '发展定位',
+          items: [
+            '对外名片：国际熊猫友好城市、冬季慢生活与公园城市休闲目的地。',
+            '评定路径：围绕大熊猫基地打造生态科普研学产品，联动国际化街区和美食街区培育入境友好消费线路。',
+            '价值主张：用熊猫打开成都，用茶馆和川菜留下游客，用国际化服务提升城市好感。'
+          ]
+        },
+        {
+          heading: '策略思路',
+          items: [
+            '破局点一：以大熊猫基地做城市入口，设计亲子科普、晨间参观和文创消费。',
+            '破局点二：以国际化街区承接青年与入境游客，把太古里、IFS、玉林等场景转化为轻社交路线。',
+            '破局点三：以慢生活讲人文，把人民公园茶馆、川菜小吃、社区街巷和非遗体验串联。',
+            '破局点四：以多语服务和数字导览降低外地游客理解成本。'
+          ]
+        },
+        {
+          heading: '实施方案',
+          items: [
+            '具体项目：推出“大熊猫基地亲子科普”“成都国际街区漫游”“人民公园茶馆生活”“川菜小吃夜游”“公园城市轻徒步”五个项目包。',
+            '产品体系：亲子熊猫一日线、入境游客城市两日线、青年美食夜游线、商务客半日休闲线。',
+            '基础设施：完善多语导览、熊猫基地预约提示、亲子休息点、外卡支付指引、街区换乘和冬季雨天备选动线。',
+            '运营思路：联动景区、街区商户、酒店、餐饮和文创品牌，用熊猫主题护照、川味菜单地图和国际友好服务提升转化。'
+          ]
+        }
+      ],
+      tags: ['冬季', '国际化', '大熊猫基地', '慢生活', '川菜美食']
+    },
+    en: {
+      title: 'Winter International Panda Leisure Plan for Chengdu',
+      desc: 'A winter city-leisure plan built around international appeal, Chengdu Research Base of Giant Panda Breeding, food, teahouses, and slow urban life.',
+      sections: [
+        { heading: 'Targeted Background Analysis', items: ['Policy: align international consumption, park-city branding, and inbound-friendly tourism.', 'Market: mild winter weather supports relaxed city travel, while the panda base anchors family demand.', 'Resource value: pandas, food culture, teahouses, international districts, parks, and local neighborhoods.', 'Audiences: families, young travelers, inbound tourists, and business travelers.', 'SWOT: strong global panda recognition; crowded hot spots; opportunities from inbound recovery; risk from similar urban lifestyle routes.'] },
+        { heading: 'Positioning', items: ['External identity: international panda-friendly city and winter slow-life destination.', 'Recognition path: build ecological study tours around the panda base and inbound-friendly consumption routes.', 'Core promise: meet pandas, drink tea, taste Sichuan food, and feel Chengdu’s relaxed international city life.'] },
+        { heading: 'Strategic Breakthroughs', items: ['Use the panda base as the gateway.', 'Use international districts for youth and inbound travelers.', 'Use teahouses and Sichuan food to tell local humanities.', 'Use multilingual services and digital guides to reduce friction.'] },
+        { heading: 'Implementation Plan', items: ['Projects: panda family science route, international district walk, People’s Park teahouse life, Sichuan snack night tour, and park-city light walk.', 'Product system: family panda day route, inbound two-day city route, youth food night route, and business half-day leisure route.', 'Infrastructure: multilingual guides, reservation reminders, family rest points, foreign-card payment tips, street transfers, and rainy-day alternatives.', 'Operations: connect scenic areas, street merchants, hotels, restaurants, and creative brands through panda passports and food maps.'] }
+      ],
+      tags: ['Winter', 'International', 'Panda Base', 'Slow Life', 'Sichuan Food']
+    }
+  },
+  chongqing: {
+    zh: {
+      title: '冬季重庆山城火锅策划案',
+      desc: '以“山城立体交通+两江夜景+火锅文化”为主线，把重庆冬季城市漫游、夜间消费和饮食人文组织成高记忆点产品。',
+      sections: [
+        {
+          heading: '针对性背景分析',
+          items: [
+            '政策背景：契合重庆国际消费中心城市、夜间经济和巴渝文化传播，突出山水城市与美食消费的复合吸引力。',
+            '市场研判：冬季低温增强火锅消费场景，两江夜景、洪崖洞、解放碑、长江索道和轻轨穿楼等城市奇观具备社媒传播力。',
+            '资源价值：火锅文化是重庆最具参与感的城市符号，山城地形、码头记忆、抗战陪都历史和夜景经济共同构成人文底盘。',
+            '客群画像：青年游客追求山城打卡和夜游，亲友结伴偏好火锅社交，入境游客关注立体城市景观，文化游客可深入巴渝历史。',
+            'SWOT：优势是火锅文化和夜景识别度高；劣势是动线高差、拥堵和排队压力；机会是夜间经济与短视频传播；威胁是热门景点过载和服务品质波动。'
+          ]
+        },
+        {
+          heading: '发展定位',
+          items: [
+            '对外名片：中国山城夜游与火锅文化体验之都。',
+            '评定路径：打造夜间文旅消费集聚区、美食文化体验线路和山城立体交通City Walk产品。',
+            '价值主张：让游客在重庆完成“走山城、看两江、坐索道、吃火锅、听码头故事”的沉浸体验。'
+          ]
+        },
+        {
+          heading: '策略思路',
+          items: [
+            '破局点一：以火锅文化做社交入口，把锅底、码头文化、食材和方言服务转化为可讲述体验。',
+            '破局点二：以夜景做消费延时，串联解放碑、洪崖洞、两江游和观景平台。',
+            '破局点三：以立体交通做城市奇观，用长江索道、轨道交通和坡坎步道组织山城动线。',
+            '破局点四：以分区预约和路线分流减轻热门点位拥堵。'
+          ]
+        },
+        {
+          heading: '实施方案',
+          items: [
+            '具体项目：推出“火锅文化体验课”“两江夜景漫游”“山城立体交通City Walk”“巴渝历史街巷线”“冬季暖胃美食地图”五个项目包。',
+            '产品体系：青年夜游火锅线、亲友社交美食线、入境游客山城经典线、历史人文半日线。',
+            '基础设施：完善夜间导视、坡坎安全提示、热门点位排队提示、外语菜单、无辣/微辣说明和返程交通提醒。',
+            '运营思路：联动火锅品牌、夜游船、街区商户、酒店和导览机构，用火锅文化护照、夜景打卡和错峰套餐提升体验质量。'
+          ]
+        }
+      ],
+      tags: ['冬季', '火锅文化', '山城夜景', '巴渝人文', '夜间经济']
+    },
+    en: {
+      title: 'Winter Mountain City and Hotpot Culture Plan for Chongqing',
+      desc: 'A winter plan centered on vertical city travel, two-river night views, and Chongqing hotpot culture.',
+      sections: [
+        { heading: 'Targeted Background Analysis', items: ['Policy: align international consumption, night economy, and Bayu cultural communication.', 'Market: winter strengthens hotpot demand, while night views and vertical transit are highly shareable.', 'Resource value: hotpot culture, mountain terrain, dock memories, wartime capital history, and night economy.', 'Audiences: young travelers, friend groups, inbound tourists, and cultural visitors.', 'SWOT: strong hotpot and night-view identity; challenges from slopes, congestion, and queues; opportunities from night economy and social media.'] },
+        { heading: 'Positioning', items: ['External identity: China’s mountain-city night tour and hotpot culture capital.', 'Recognition path: build night consumption districts, food culture routes, and vertical city walks.', 'Core promise: walk the mountain city, see two rivers, ride the cableway, eat hotpot, and hear dock stories.'] },
+        { heading: 'Strategic Breakthroughs', items: ['Use hotpot culture as the social gateway.', 'Use night views to extend spending time.', 'Use cableways, rail transit, and slope lanes as city spectacles.', 'Use reservation and route diversion to reduce crowding.'] },
+        { heading: 'Implementation Plan', items: ['Projects: hotpot culture class, two-river night walk, vertical transit City Walk, Bayu historical streets, and winter food map.', 'Product system: youth night hotpot route, friend-group food route, inbound classic mountain-city route, and historical half-day route.', 'Infrastructure: night signs, slope safety tips, queue guidance, foreign-language menus, spice-level notes, and return transport reminders.', 'Operations: connect hotpot brands, night cruise operators, street merchants, hotels, and guide teams through hotpot passports and off-peak packages.'] }
+      ],
+      tags: ['Winter', 'Hotpot Culture', 'Mountain City', 'Night Economy', 'Bayu Humanities']
+    }
+  },
+  chongzhou: {
+    zh: {
+      title: '冬季崇州历史人文慢游策划案',
+      desc: '以“历史人文+古镇水岸+非遗竹编+川西山林”为主线，围绕__罨画池博物馆__、__街子古镇__、__元通古镇__、__道明竹艺村__与凤栖山片区，设计低密度、可停留、有人文辨识度的冬季慢游产品。',
+      sections: [
+        {
+          heading: '针对性背景分析',
+          items: [
+            '政策背景：契合成都都市圈近郊微度假、公园城市、乡村文旅融合与非遗活化方向，突出崇州作为川西生活方式承载地的价值。',
+            '市场研判：冬季游客更偏好短途、安静、可休息的目的地，崇州适合承接成都周边家庭、银发和文化慢游客群，但需要用更清晰的景点组合强化“为什么去”。',
+            '资源价值：__罨画池博物馆__以罨画池、州文庙、陆游祠构成“园林+文庙+诗人记忆”的核心人文场；__元通古镇__保留三江汇流、水岸码头、会馆街巷气质；__街子古镇__连接凤栖山、光严禅院与古镇生活；__道明竹艺村__承载国家级非遗道明竹编。',
+            '客群画像：成都周边家庭关注周末散心，文化游客偏好州文庙、陆游祠和古镇故事，银发游客需要低强度动线，青年游客追求小众街巷、竹艺手作和川西田园照片。',
+            'SWOT：优势是近郊便利、历史人文密度和川西生活质感；劣势是景点分散、全国知名度有限；机会是非遗研学、古镇慢游和城市减压需求；威胁是古镇产品同质化与停留时间偏短。'
+          ]
+        },
+        {
+          heading: '发展定位',
+          items: [
+            '对外名片：成都西部历史人文慢游地、川西古镇水岸与非遗竹编体验窗口。',
+            '评定路径：以罨画池博物馆为文化锚点，联动街子古镇、元通古镇、道明竹艺村和凤栖山光严禅院片区，培育历史文化慢游线路、非遗研学体验点和成都近郊微度假示范产品。',
+            '价值主张：用__一座园林文庙__、__两座古镇水岸__、__一项非遗竹编__和__一片山林禅意__，补足成都都市旅游之外的川西人文侧面。'
+          ]
+        },
+        {
+          heading: '策略思路',
+          items: [
+            '破局点一：以罨画池博物馆做文化开场，把罨画池园林、州文庙礼制空间和陆游祠诗歌记忆转化为“蜀州文脉”导览脚本。',
+            '破局点二：以古镇水岸做空间体验，把元通古镇的码头商贸记忆与街子古镇的山水古镇气质组织成双古镇慢游。',
+            '破局点三：以道明竹艺村做参与体验，用道明竹编手作课、竹编文创和乡村公共艺术提升互动感。',
+            '破局点四：以凤栖山、光严禅院做冬季静养补充，形成“古镇街巷+山林禅意+茶事围炉”的慢节奏。'
+          ]
+        },
+        {
+          heading: '实施方案',
+          items: [
+            '具体项目：推出“罨画池-州文庙-陆游祠文脉线”“元通古镇水岸码头线”“街子古镇-凤栖山-光严禅院山林线”“道明竹艺村非遗手作线”“冬季围炉茶事与地方风味线”五个项目包。',
+            '产品体系：半日文脉精华线、一日双古镇水岸线、亲子竹编研学线、银发低强度慢游线、青年小众拍照与围炉线。',
+            '基础设施：完善罨画池博物馆至古镇片区的导视串联、停车换乘、休憩座椅、公共卫生间、非遗课程预约、山林步道安全提示和冬季雨雾备选动线。',
+            '运营思路：联动罨画池博物馆、街子古镇、元通古镇、道明竹艺村、凤栖山光严禅院片区、乡村民宿和餐饮商户，用慢游地图、地方故事卡、竹编体验券和周末市集提升停留。'
+          ]
+        }
+      ],
+      tags: ['冬季', '罨画池', '街子古镇', '元通古镇', '道明竹编']
+    },
+    en: {
+      title: 'Winter Historical Slow-Travel Plan for Chongzhou',
+      desc: 'A low-density winter slow-travel plan built around __Yanhua Pond Museum__, __Jiezi Ancient Town__, __Yuantong Ancient Town__, __Daoming Bamboo Art Village__, and Fengqi Mountain.',
+      sections: [
+        { heading: 'Targeted Background Analysis', items: ['Policy: align Chengdu metropolitan micro-vacations, park-city development, rural cultural tourism, and intangible-heritage activation.', 'Market: winter favors quiet, short-distance, restful destinations, but Chongzhou needs clearer attraction clusters to make the value instantly legible.', 'Resource value: __Yanhua Pond Museum__ connects Yanhua Pond, the prefectural Confucian temple, and Lu You memorial memory; __Yuantong Ancient Town__ carries waterside dock culture; __Jiezi Ancient Town__ links Fengqi Mountain and Guangyan Temple; __Daoming Bamboo Art Village__ carries the national intangible heritage of Daoming bamboo weaving.', 'Audiences: Chengdu families, cultural slow travelers, older visitors, craft learners, and young niche photographers.', 'SWOT: convenient location and strong cultural texture; dispersed sites and lower national visibility; opportunities from craft study tours and slow travel; risks from generic ancient-town packaging.'] },
+        { heading: 'Positioning', items: ['External identity: Chengdu western historical slow-travel destination and a window into ancient-town watersides and bamboo weaving.', 'Recognition path: connect Yanhua Pond Museum, Jiezi Ancient Town, Yuantong Ancient Town, Daoming Bamboo Art Village, Fengqi Mountain, and Guangyan Temple into a micro-vacation product.', 'Core promise: use __one garden-temple complex__, __two waterside ancient towns__, __one bamboo-weaving heritage__, and __one mountain temple scene__ to tell western Sichuan stories.'] },
+        { heading: 'Strategic Breakthroughs', items: ['Use Yanhua Pond Museum, the Confucian temple, and Lu You memorial memory as the cultural opening.', 'Use Yuantong Ancient Town and Jiezi Ancient Town for waterside and mountain-town slow travel.', 'Use Daoming Bamboo Art Village and Daoming bamboo weaving for hands-on participation.', 'Use Fengqi Mountain and Guangyan Temple for winter quietness, tea, and wellness pacing.'] },
+        { heading: 'Implementation Plan', items: ['Projects: Yanhua Pond-Confucian Temple-Lu You culture route, Yuantong waterside dock route, Jiezi-Fengqi Mountain-Guangyan Temple route, Daoming bamboo-weaving workshop route, and winter tea-gathering food route.', 'Product system: half-day cultural highlights, one-day dual ancient-town route, family bamboo-weaving study route, low-intensity senior route, and youth photography plus fireside tea route.', 'Infrastructure: connected signage, parking transfers, rest seats, toilets, workshop booking, mountain-path safety tips, and rainy-day alternatives.', 'Operations: connect the museum, ancient towns, bamboo art village, mountain temple area, homestays, teahouses, and restaurants through slow-travel maps, story cards, craft coupons, and weekend markets.'] }
+      ],
+      tags: ['Winter', 'Yanhua Pond', 'Ancient Towns', 'Bamboo Weaving', 'Slow Travel']
+    }
+  }
+};
+
 const toneColors = {
   bay: ['#0f766e', '#99f6e4'],
   capital: ['#4338ca', '#c7d2fe'],
@@ -379,7 +718,7 @@ function getSeasonLabel(city) {
 }
 
 function getCityPlanning(city) {
-  return city.planning?.[currentLanguage] || null;
+  return city.planning?.[currentLanguage] || winterPlanningRecords[city.id]?.[currentLanguage] || null;
 }
 
 function escapeHTML(value) {
@@ -389,6 +728,13 @@ function escapeHTML(value) {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
+}
+
+function renderFormattedPlanningText(value) {
+  return escapeHTML(value)
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/__([^_]+)__/g, '<u>$1</u>')
+    .replace(/^([^：:]{2,18})([：:])/, '<strong class="planning-key-label">$1$2</strong>');
 }
 
 function getVisitedProvinceNames() {
@@ -425,12 +771,14 @@ function renderTravelCard() {
 
   travelCityName.textContent = cityName;
   travelCardTitle.textContent = planning?.title || dictionary['travel.cardTitle'];
-  travelCardDesc.textContent = planning?.desc || dictionary['travel.cardDesc'];
+  travelCardDesc.innerHTML = planning?.desc
+    ? renderFormattedPlanningText(planning.desc)
+    : escapeHTML(dictionary['travel.cardDesc']);
   travelCardSections.innerHTML = (planning?.sections || []).map(section => `
     <section class="travel-planning-section">
       <h4>${escapeHTML(section.heading)}</h4>
       <ul>
-        ${section.items.map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+        ${section.items.map(item => `<li>${renderFormattedPlanningText(item)}</li>`).join('')}
       </ul>
     </section>
   `).join('');

@@ -1114,13 +1114,90 @@ function getSeasonLabel(city) {
   return seasonLabels[city.season]?.[currentLanguage] || '';
 }
 
+function isPositioningSection(heading) {
+  return heading === '发展定位' || heading === 'Positioning';
+}
+
+function isStrategySection(heading) {
+  return heading === '策略思路' || heading === 'Strategic Breakthroughs';
+}
+
+function isImplementationSection(heading) {
+  return heading === '实施方案' || heading === 'Implementation Plan';
+}
+
+function getNumberedStrategyItem(item, index) {
+  const zhPrefixes = ['一：', '二：', '三：'];
+  const enPrefixes = ['1: ', '2: ', '3: '];
+  const isChineseItem = /[\u4e00-\u9fa5]/.test(item);
+  const body = item
+    .replace(/^(破局点[一二三四1234]?|Breakthrough\s*\d*|Breakthrough)[：:]\s*/i, '')
+    .replace(/^[一二三四1234][：:]\s*/, '');
+
+  return `${isChineseItem ? zhPrefixes[index] : enPrefixes[index]}${body}`;
+}
+
+function getOperationsItem(item) {
+  if (item.includes('预约-导览-消费-反馈') || item.includes('reservation-guidance-spending-feedback')) {
+    return item;
+  }
+
+  if (item.startsWith('运营思路：')) {
+    return '运营思路：建立“预约-导览-消费-反馈”闭环，推出主题路线包、票根联动、错峰权益和分客群服务清单。';
+  }
+
+  if (item.startsWith('Operations:')) {
+    return 'Operations: build a reservation-guidance-spending-feedback loop with themed route packs, ticket-linked offers, off-peak benefits, and audience-specific service checklists.';
+  }
+
+  return item;
+}
+
+function shouldHidePlanningItem(item) {
+  return item.startsWith('运营思路：') || item.startsWith('Operations:');
+}
+
+function getCompactPlanningRecord(record) {
+  if (!record?.sections?.length) {
+    return record;
+  }
+
+  return {
+    ...record,
+    sections: record.sections.map(section => {
+      if (isPositioningSection(section.heading)) {
+        return {
+          ...section,
+          items: (section.items || []).slice(0, 1)
+        };
+      }
+
+      if (isStrategySection(section.heading)) {
+        return {
+          ...section,
+          items: (section.items || []).slice(0, 3).map(getNumberedStrategyItem)
+        };
+      }
+
+      if (isImplementationSection(section.heading)) {
+        return {
+          ...section,
+          items: (section.items || []).map(getOperationsItem).filter(item => !shouldHidePlanningItem(item))
+        };
+      }
+
+      return section;
+    })
+  };
+}
+
 function getCityPlanning(city) {
   const sourceRecord = city.planning || winterPlanningRecords[city.id] || springPlanningRecords[city.id] || summerPlanningRecords[city.id] || autumnPlanningRecords[city.id];
   const localizedRecord = sourceRecord?.[currentLanguage];
   if (localizedRecord?.sections?.length) {
-    return localizedRecord;
+    return getCompactPlanningRecord(localizedRecord);
   }
-  return sourceRecord?.zh || localizedRecord || null;
+  return getCompactPlanningRecord(sourceRecord?.zh || localizedRecord || null);
 }
 
 function escapeHTML(value) {

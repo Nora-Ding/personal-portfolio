@@ -206,86 +206,80 @@ const travelCities = [
     season: 'summer',
     planning: {
       zh: {
-        title: '夏季青岛滨海人文消费策划案',
-        desc: '以“海洋度假+老城人文+夜间消费”为主线，将栈桥湾、上街里/大鲍岛、八大关、奥帆中心与啤酒文化资源串联，形成面向暑期亲子、青年、入境游客和研学团队的复合型城市产品。',
+        title: '青岛夏季滨海人文策划记录',
+        desc: '以海岸度假、老城漫游、啤酒夜游为主线，串联栈桥、八大关、上街里、奥帆中心、跨海大桥与黄岛，服务亲子、青年、入境和研学客群。',
         sections: [
           {
             heading: '针对性背景分析',
             items: [
-              '政策背景：对齐青岛建设国际滨海旅游目的地、文旅消费提振、海洋旅游壮大、入境旅游拓展和研学经济培育等方向。',
-              '市场研判：暑期滨海客流基础强，老城街区、音乐节演艺、海上旅游和文博研学共同带动“白天观光、夜间消费、二次复游”。',
-              '资源价值：青岛兼具山海城湾、跨海大桥、黄岛海岸线、德式建筑、里院街区、啤酒工业遗产、奥帆海洋场景与高校研学资源，具备从观光城市转向体验型目的地的条件。',
-              '客群画像：亲子避暑家庭重视安全与舒适，青年游客追求出片和夜生活，研学团队关注历史建筑与海洋科普，入境游客偏好可翻译、可支付、可串联的一日/半日产品。',
-              'SWOT：优势是滨海知名度和老城文化辨识度高；劣势是暑期拥堵、停留时长和消费转化不足；机会来自入境便利、演艺节会和海洋经济；威胁是同质化海滨城市竞争、天气扰动与旺季服务压力。'
+              '政策背景：对齐国际滨海旅游目的地、海洋旅游、夜间消费、入境旅游和研学发展方向。',
+              '市场研判：暑期避暑需求稳定，游客更需要“白天看海、傍晚拍照、夜间消费”的清晰动线。',
+              '资源价值：栈桥、八大关、里院街区、奥帆中心、啤酒文化、跨海大桥和黄岛海岸线辨识度高。',
+              '客群画像：亲子看重安全与休憩，青年追求出片和夜游，外籍旅客需要多语信息、便捷支付和清晰交通。',
+              'SWOT：优势是滨海品牌强；短板是旺季拥堵和停留转化；机会在海上体验、夜游和入境服务。'
             ]
           },
           {
             heading: '发展定位',
             items: [
-              '对外名片：上合滨海人文会客厅、最青岛老城海岸漫游地、北方夏季海洋研学目的地。',
-              '评定路径：以老城滨海文旅廊道培育5A级景区创建支撑点，争创省级特色步行街、夜间文旅消费集聚区、海洋研学旅行基地等称号。',
-              '价值主张：不是单点打卡，而是把“看海、读城、听演出、喝啤酒、做研学”组织成可运营、可复购、可传播的城市体验。'
+              '对外名片：北方夏季滨海人文目的地、青岛老城海岸漫游地、海洋研学体验城市。'
             ]
           },
           {
             heading: '策略思路',
             items: [
-              '破局点一：以海串城，用海上巴士、跨海大桥体验、滨海步道和地铁接驳把分散景点变成连续动线。',
-              '破局点二：以城留人，把里院、德式建筑、啤酒文化和城市更新故事转化为导览、演艺、市集和研学脚本。',
-              '破局点三：以夜增收，围绕黄昏海岸、老城灯光、音乐演艺和啤酒消费设计夜游产品。',
-              '破局点四：以服务提质，补强多语导览、预约分流、亲子休憩、雨天备选和消费闭环。'
+              '一：用栈桥-八大关-奥帆中心建立经典海岸线，降低游客选择成本。',
+              '二：用跨海大桥体验和黄岛环岛游扩展停留半径，形成海湾叙事。',
+              '三：用啤酒夜游、街区市集、多语导览和支付提示提升入境友好度。'
             ]
           },
           {
             heading: '实施方案',
             items: [
-              '具体项目：推出“栈桥湾城市开场”“八大关建筑漫游”“上街里夜间人文消费”“奥帆海洋研学”“跨海大桥体验”“黄岛环岛游”“啤酒工业遗产微度假”七个项目包。',
-              '产品体系：半日精华线、亲子一日线、青年夜游线、入境游客City Walk线、跨海大桥观景线、黄岛环岛休闲线、研学两日线，统一票根权益和预约入口。',
-              '基础设施：设置多语导览牌、遮阳补水点、亲子洗手间、行李寄存、夜间照明、街区导视和海陆交通接驳提示。',
-              '运营思路：建立“政府统筹+街区运营商+景区场馆+酒店餐饮+演艺机构+交通服务商”的联动机制，用节会日历、票根联动、达人内容和社群复游券提升转化。'
+              '具体项目：设置“栈桥湾开场、八大关漫游、上街里夜游、奥帆研学、跨海大桥、黄岛环岛”六个包。',
+              '产品体系：半日看海线、亲子一日线、青年夜游线、入境City Walk线、海洋研学两日线。',
+              '基础设施：补齐遮阳补水、亲子洗手间、行李寄存、多语导览、支付说明和海陆接驳提示。',
+              '运营思路：建立“预约-导览-消费-反馈”闭环，推出多语路线包、票根联动、夜游权益和外籍旅客服务清单。'
             ]
           }
         ],
         tags: ['夏季', '滨海人文', '夜间消费', '研学产品']
       },
       en: {
-        title: 'Summer Coastal Humanities and Consumption Plan for Qingdao',
-        desc: 'A professional planning summary built around coastal leisure, old-town humanities, and night-time consumption, linking Zhanqiao Bay, Shangjieli/Dabaodao, Badaguan, Olympic Sailing Center, and beer culture into a summer product system.',
+        title: 'Qingdao Summer Coastal Planning Note',
+        desc: 'Built around coastal leisure, old-town walks, and beer-night consumption, this route links Zhanqiao, Badaguan, Shangjieli, Olympic Sailing Center, the cross-sea bridge, and Huangdao for families, young travelers, inbound visitors, and study groups.',
         sections: [
           {
             heading: 'Targeted Background Analysis',
             items: [
-              'Policy: aligned with Qingdao’s goals around an international coastal tourism destination, cultural-tourism consumption, marine tourism, inbound tourism, and study-tour products.',
-              'Market: summer coastal demand is strong, while old-town districts, performances, sea tours, museums, and study tours can extend dwell time and spending.',
-              'Resource value: Qingdao combines coast, mountains, the cross-sea bridge, Huangdao shoreline, historic architecture, courtyard districts, beer heritage, Olympic sailing assets, and marine education resources.',
-              'Audiences: family travelers need safety and comfort, young travelers seek photogenic night experiences, study groups value heritage and marine science, and inbound travelers need translatable routes and convenient services.',
-              'SWOT: strong city recognition and heritage identity; pressure from congestion and limited conversion; opportunities from inbound access, events, and marine economy; risks from similar coastal competitors, weather, and peak-season service load.'
+              'Policy: align with coastal tourism, marine leisure, night-time consumption, inbound travel, and study-tour development.',
+              'Market: summer demand is stable, but visitors need a clearer day-to-night route from sea views to evening spending.',
+              'Resource value: Zhanqiao, Badaguan, courtyard districts, Olympic Sailing Center, beer culture, the bridge, and Huangdao are highly recognizable.',
+              'Audiences: families value safety and rest, young travelers seek photos and nightlife, while foreign travelers need multilingual information, easy payment, and clear transport.',
+              'SWOT: strong coastal brand; weak points are congestion and low conversion; opportunities lie in sea tours, night routes, and inbound services.'
             ]
           },
           {
             heading: 'Positioning',
             items: [
-              'External identity: SCO coastal humanities reception room, “most Qingdao” old-town coastal walk, and northern China summer marine study-tour destination.',
-              'Recognition path: support 5A-level old-town coastal corridor development and pursue labels such as featured pedestrian district, night-time culture-tourism consumption cluster, and marine study-tour base.',
-              'Core promise: turn sightseeing, architecture, beer culture, performances, and study tours into an operable and repeatable city experience.'
+              'External identity: northern China summer coastal humanities destination, Qingdao old-town coastal walk, and marine study-tour city.'
             ]
           },
           {
             heading: 'Strategic Breakthroughs',
             items: [
-              'Connect the city through the sea with sea buses, cross-sea bridge experiences, coastal walks, and metro transfers.',
-              'Keep visitors in the old town by converting architecture, courtyard life, beer heritage, and renewal stories into guided walks, performances, markets, and study scripts.',
-              'Grow night spending through sunset waterfront routes, old-town lighting, music events, and beer consumption.',
-              'Improve service with multilingual guides, reservation flow control, family rest points, rain plans, and closed-loop spending incentives.'
+              '1: use Zhanqiao-Badaguan-Olympic Sailing Center as the classic coastal line to lower planning friction.',
+              '2: extend dwell time through the cross-sea bridge experience and Huangdao island route.',
+              '3: use beer night tours, street markets, multilingual guidance, and payment tips to improve inbound friendliness.'
             ]
           },
           {
             heading: 'Implementation Plan',
             items: [
-              'Projects: Zhanqiao Bay city opening, Badaguan architecture walk, Shangjieli night consumption, Olympic Sailing marine study tour, cross-sea bridge experience, Huangdao island-loop tour, and beer heritage micro-vacation.',
-              'Product system: half-day highlights, family one-day route, youth night route, inbound City Walk, cross-sea bridge scenic route, Huangdao leisure loop, and two-day study-tour package with shared ticket benefits.',
-              'Infrastructure: multilingual wayfinding, shade and water points, family restrooms, luggage storage, lighting, street signs, and sea-land transfer prompts.',
-              'Operations: a joint mechanism among government, district operators, scenic areas, hotels, restaurants, performance institutions, and transport service providers, driven by event calendars, ticket linkage, creator content, and return coupons.'
+              'Projects: Zhanqiao Bay opening, Badaguan walk, Shangjieli night route, Olympic Sailing study tour, cross-sea bridge, and Huangdao island route.',
+              'Product system: half-day sea-view route, family day route, youth night route, inbound City Walk, and two-day marine study route.',
+              'Infrastructure: add shade, water points, family toilets, luggage storage, multilingual guidance, payment notes, and sea-land transfer tips.',
+              'Operations: build a reservation-guidance-spending-feedback loop with multilingual route packs, ticket-linked offers, night-tour benefits, and a foreign-visitor service checklist.'
             ]
           }
         ],

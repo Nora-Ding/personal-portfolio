@@ -157,11 +157,63 @@ const svgCityElements = new Map();
 const travelPhotoIndexes = {};
 
 const travelCityPhotos = {
+  haerbin: [
+    { src: 'assets/travel/haerbin-ice-world-ferris-wheel.jpg', zh: '冰雪大世界摩天轮', en: 'Ice and Snow World ferris wheel' },
+    { src: 'assets/travel/haerbin-sophia-cathedral.jpg', zh: '索菲亚大教堂', en: 'Saint Sophia Cathedral' },
+    { src: 'assets/travel/haerbin-731-museum.jpg', zh: '731部队罪证陈列馆', en: 'Evidence Exhibition Hall of Unit 731' },
+    { src: 'assets/travel/haerbin-snowman.jpg', zh: '哈尔滨大雪人', en: 'Harbin giant snowman' }
+  ],
+  beijing: [
+    { src: 'assets/travel/beijing-tiananmen-square.jpg', zh: '天安门广场', en: 'Tiananmen Square' },
+    { src: 'assets/travel/beijing-palace-museum.jpg', zh: '故宫博物院', en: 'Palace Museum' },
+    { src: 'assets/travel/beijing-temple-of-heaven.jpg', zh: '天坛公园祈年殿', en: 'Hall of Prayer for Good Harvests' },
+    { src: 'assets/travel/beijing-national-museum.jpg', zh: '中国国家博物馆', en: 'National Museum of China' },
+    { src: 'assets/travel/beijing-universal-resort.jpg', zh: '北京环球影城', en: 'Universal Beijing Resort' },
+    { src: 'assets/travel/beijing-universal-hogwarts.jpg', zh: '环球影城霍格沃兹主题', en: 'Universal Studios Hogwarts area' }
+  ],
+  dalian: [
+    { src: 'assets/travel/dalian-xinghai-square.jpg', zh: '大连星海广场', en: 'Dalian Xinghai Square' },
+    { src: 'assets/travel/dalian-4h-sea-sunset.jpg', zh: '失联4h海上日落', en: 'Four-hour sea route sunset' }
+  ],
   qingdao: [
     { src: 'assets/travel/qingdao-zhanqiao.jpg', zh: '青岛栈桥', en: 'Qingdao Zhanqiao Pier' },
     { src: 'assets/travel/qingdao-boat.jpg', zh: '青岛游船', en: 'Qingdao sightseeing boat' },
     { src: 'assets/travel/qingdao-bridge-sunset.jpg', zh: '青岛日落跨海大桥', en: 'Qingdao cross-sea bridge at sunset' },
     { src: 'assets/travel/qingdao-huangdao-yumingzui.jpg', zh: '青岛黄岛鱼鸣嘴村', en: 'Yumingzui Village in Huangdao, Qingdao' }
+  ],
+  yantai: [
+    { src: 'assets/travel/yantai-hill-scenic-area.jpg', zh: '烟台山景区', en: 'Yantai Hill Scenic Area' },
+    { src: 'assets/travel/yantai-seal-bay.jpg', zh: '烟台海豹湾', en: 'Yantai Seal Bay' },
+    { src: 'assets/travel/yantai-yangma-island-glass-sea.jpg', zh: '烟台养马岛玻璃海', en: 'Yangma Island glassy sea' },
+    { src: 'assets/travel/yantai-lucky-seal.jpg', zh: '烟台“幸运”海豹', en: 'Yantai lucky seal' }
+  ],
+  weihai: [
+    { src: 'assets/travel/weihai-night-view.jpg', zh: '威海夜景', en: 'Weihai night view' },
+    { src: 'assets/travel/weihai-liugong-island-museum.jpg', zh: '刘公岛甲午战争博物馆', en: 'Liugong Island Sino-Japanese War Museum' }
+  ],
+  rongcheng: [
+    { src: 'assets/travel/rongcheng-coastal-life.jpg', zh: '荣成海边慢生活', en: 'Rongcheng coastal slow life' }
+  ],
+  zhengzhou: [
+    { src: 'assets/travel/zhengzhou-erqi-memorial-tower.jpg', zh: '二七纪念塔', en: 'Erqi Memorial Tower' },
+    { src: 'assets/travel/zhengzhou-youhuachang-creative-park.jpg', zh: '郑州油化厂创意园', en: 'Zhengzhou Youhuachang Creative Park' },
+    { src: 'assets/travel/zhengzhou-zhongyuan-tower.jpg', zh: '中原福塔', en: 'Zhongyuan Tower' }
+  ],
+  kaifeng: [
+    { src: 'assets/travel/kaifeng-qingming-riverside-iron-flower.jpg', zh: '清明上河园打铁花', en: 'Iron flower show at Qingming Riverside Landscape Garden' },
+    { src: 'assets/travel/kaifeng-museum.jpg', zh: '开封博物馆', en: 'Kaifeng Museum' }
+  ],
+  jiujiang: [
+    { src: 'assets/travel/jiujiang-poyang-lake.jpg', zh: '九江鄱阳湖', en: 'Poyang Lake in Jiujiang' },
+    { src: 'assets/travel/jiujiang-grass-sea-sunset.jpg', zh: '鄱阳湖草海日落', en: 'Grass sea sunset at Poyang Lake' },
+    { src: 'assets/travel/jiujiang-poyang-lake-sunset.jpg', zh: '鄱阳湖日落盛景', en: 'Poyang Lake sunset' },
+    { src: 'assets/travel/jiujiang-xunyang-tower.jpg', zh: '浔阳楼', en: 'Xunyang Tower' },
+    { src: 'assets/travel/jiujiang-pipa-pavilion.jpg', zh: '琵琶亭', en: 'Pipa Pavilion' }
+  ],
+  wuhan: [
+    { src: 'assets/travel/wuhan-riverfront.jpg', zh: '武汉江滩', en: 'Wuhan riverfront' },
+    { src: 'assets/travel/wuhan-hubei-museum-bells.jpg', zh: '湖北省博物馆编钟', en: 'Chime bells at Hubei Provincial Museum' },
+    { src: 'assets/travel/wuhan-hubei-museum-sword.jpg', zh: '湖北省博物馆越王勾践剑', en: 'Sword of Goujian at Hubei Provincial Museum' }
   ],
   chongzhou: [
     { src: 'assets/travel/chongzhou-landmark.jpg', zh: '崇州地标', en: 'Chongzhou landmark' },
@@ -186,8 +238,25 @@ const travelCityPhotos = {
     { src: 'assets/travel/lijiang-naxi-script.jpg', zh: '丽江纳西部落象形文字', en: 'Naxi pictographic script in Lijiang' },
     { src: 'assets/travel/lijiang-costume-photo.jpg', zh: '丽江民族服饰旅拍', en: 'Ethnic costume photo experience in Lijiang' }
   ],
-  wuhan: [
-    { src: 'assets/travel/wuhan-riverfront.jpg', zh: '武汉江滩', en: 'Wuhan riverfront' }
+  shenzhen: [
+    { src: 'assets/travel/shenzhen-museum.jpg', zh: '深圳博物馆', en: 'Shenzhen Museum' },
+    { src: 'assets/travel/shenzhen-museum-ancient-art.jpg', zh: '深圳博物馆古代艺术馆', en: 'Shenzhen Museum of Ancient Art' }
+  ],
+  hongkong: [
+    { src: 'assets/travel/hongkong-disneyland.jpg', zh: '香港迪士尼乐园', en: 'Hong Kong Disneyland' },
+    { src: 'assets/travel/hongkong-university.jpg', zh: '香港大学', en: 'The University of Hong Kong' },
+    { src: 'assets/travel/hongkong-legislative-council.jpg', zh: '香港特别行政区立法会', en: 'Legislative Council of Hong Kong' },
+    { src: 'assets/travel/hongkong-tai-kwun.jpg', zh: '香港大馆', en: 'Tai Kwun' },
+    { src: 'assets/travel/hongkong-heritage-museum.jpg', zh: '香港文化博物馆', en: 'Hong Kong Heritage Museum' },
+    { src: 'assets/travel/hongkong-stanley.jpg', zh: '香港赤柱', en: 'Stanley, Hong Kong' },
+    { src: 'assets/travel/hongkong-stanley-market.jpg', zh: '赤柱市集', en: 'Stanley Market' },
+    { src: 'assets/travel/hongkong-victoria-peak.jpg', zh: '太平山顶', en: 'Victoria Peak' }
+  ],
+  macau: [
+    { src: 'assets/travel/macau-ruins-of-st-paul.jpg', zh: '澳门大三巴牌坊', en: 'Ruins of Saint Paul' },
+    { src: 'assets/travel/macau-hong-kong-zhuhai-macao-bridge.jpg', zh: '港珠澳大桥', en: 'Hong Kong-Zhuhai-Macao Bridge' },
+    { src: 'assets/travel/macau-university.jpg', zh: '澳门大学', en: 'University of Macau' },
+    { src: 'assets/travel/macau-venetian.jpg', zh: '澳门威尼斯人', en: 'The Venetian Macao' }
   ]
 };
 
@@ -802,27 +871,27 @@ const springPlanningRecords = {
   zhengzhou: {
     zh: {
       title: '春季郑州黄河中原策划案',
-      desc: '以“黄河文明+中原都心+沉浸演艺+河南面食文化”为主线，串联__黄河__、__河南博物院__、__只有河南__、__二七纪念塔__与__胡辣汤__早餐记忆，打造春季中原文化入门目的地。',
+      desc: '以“黄河文明+中原都心+沉浸演艺+城市更新+河南面食文化”为主线，串联__黄河__、__河南博物院__、__只有河南__、__油化厂创意园__、__二七纪念塔__与__胡辣汤__早餐记忆，打造春季中原文化入门目的地。',
       sections: [
-        { heading: '针对性背景分析', items: ['政策背景：呼应黄河国家文化公园、华夏历史文明传承创新和都市文旅消费升级，强化郑州国家中心城市的文化门户功能。', '市场研判：春季温度适合城市漫游、亲子文博和近郊演艺，游客需要一条能快速读懂中原的低门槛线路，也需要__河南面食文化__、__胡辣汤__等生活化记忆锚点。', '资源价值：__黄河__提供文明母题，__河南博物院__承接文物叙事，__只有河南__强化沉浸演艺传播，__二七纪念塔__形成城市精神坐标，胡辣汤、烩面和蒸面等河南面食文化构成味觉入口。', '客群画像：亲子家庭关注文博研学，青年游客偏好沉浸演艺、城市街拍和早餐市井体验，银发游客适合低强度黄河文化慢游。', 'SWOT：优势是交通枢纽、文明叙事和面食烟火气强；劣势是城市休闲度假感不足；机会是文博热、演艺消费和早餐文化传播；威胁是中转型游客停留短。'] },
+        { heading: '针对性背景分析', items: ['政策背景：呼应黄河国家文化公园、华夏历史文明传承创新、城市更新和都市文旅消费升级，强化郑州国家中心城市的文化门户功能。', '市场研判：春季温度适合城市漫游、亲子文博和近郊演艺，游客需要一条能快速读懂中原的低门槛线路，也需要__河南面食文化__、__胡辣汤__等生活化记忆锚点。', '资源价值：__黄河__提供文明母题，__河南博物院__承接文物叙事，__只有河南__强化沉浸演艺传播，__油化厂创意园__补足青年街拍、创意消费和城市更新表达，__二七纪念塔__形成城市精神坐标，胡辣汤、烩面和蒸面等河南面食文化构成味觉入口。', '客群画像：亲子家庭关注文博研学，青年游客偏好沉浸演艺、油化厂创意园街拍和早餐市井体验，银发游客适合低强度黄河文化慢游。', 'SWOT：优势是交通枢纽、文明叙事、城市更新和面食烟火气强；劣势是城市休闲度假感不足；机会是文博热、演艺消费、创意园打卡和早餐文化传播；威胁是中转型游客停留短。'] },
         { heading: '发展定位', items: ['对外名片：黄河文明春季会客厅、中原文化与河南面食文化首站。', '评定路径：以黄河文化、河南博物院、只有河南、二七商圈和胡辣汤早餐地图形成“文明源流+文物展示+沉浸演艺+城市记忆+味觉锚点”产品。', '价值主张：让游客在郑州完成“看黄河、读文物、入戏剧、识都心、喝胡辣汤”的春季体验。'] },
-        { heading: '策略思路', items: ['破局点一：以黄河做最高文化母题，建立郑州与中原文明的第一联想。', '破局点二：以河南博物院做知识入口，把文物热转化为亲子研学和城市停留。', '破局点三：以只有河南做情绪放大，用沉浸演艺解决年轻游客参与感。', '破局点四：以二七纪念塔和商圈做城市收束，并用河南面食文化、胡辣汤早餐线补足餐饮、购物和夜间消费。'] },
-        { heading: '实施方案', items: ['具体项目：推出“黄河文化半日线”“河南博物院亲子研学”“只有河南沉浸演艺”“二七纪念塔城市记忆”“胡辣汤早餐与河南面食文化地图”五个项目包。', '产品体系：亲子文博线、青年演艺线、银发黄河慢游线、商务客中原快闪线、早餐烟火体验线。', '基础设施：完善黄河岸线导视、博物馆预约提示、演艺交通接驳、二七商圈步行导览、早餐店排队提示和春季风沙防护提醒。', '运营思路：联动博物馆、演艺园区、商圈和餐饮，用黄河护照、文博任务卡、演出票根权益、胡辣汤早餐券和夜间消费券提升停留。'] }
+        { heading: '策略思路', items: ['破局点一：以黄河做最高文化母题，建立郑州与中原文明的第一联想。', '破局点二：以河南博物院做知识入口，把文物热转化为亲子研学和城市停留。', '破局点三：以只有河南和油化厂创意园做情绪放大，用沉浸演艺、城市更新和青年街拍解决年轻游客参与感。', '破局点四：以二七纪念塔和商圈做城市收束，并用河南面食文化、胡辣汤早餐线补足餐饮、购物和夜间消费。'] },
+        { heading: '实施方案', items: ['具体项目：推出“黄河文化半日线”“河南博物院亲子研学”“只有河南沉浸演艺”“油化厂创意园青年街拍”“二七纪念塔城市记忆”“胡辣汤早餐与河南面食文化地图”六个项目包。', '产品体系：亲子文博线、青年演艺创意线、银发黄河慢游线、商务客中原快闪线、早餐烟火体验线。', '基础设施：完善黄河岸线导视、博物馆预约提示、演艺交通接驳、油化厂创意园拍照点与夜间导视、二七商圈步行导览、早餐店排队提示和春季风沙防护提醒。', '运营思路：联动博物馆、演艺园区、创意园区、商圈和餐饮，用黄河护照、文博任务卡、演出票根权益、创意园消费券、胡辣汤早餐券和夜间消费券提升停留。'] }
       ],
-      tags: ['春季', '郑州', '黄河', '胡辣汤', '河南面食文化']
+      tags: ['春季', '郑州', '黄河', '油化厂创意园', '胡辣汤']
     }
   },
   kaifeng: {
     zh: {
       title: '春季开封宋韵古都策划案',
-      desc: '以“北宋古都+沉浸街区+市井美食+夜间演艺”为主线，串联__清明上河园__、__清明上河园打铁花__、__龙亭__、__开封府__与__灌汤包__，打造可游、可演、可吃的春季宋文化目的地。',
+      desc: '以“北宋古都+沉浸街区+文博研学+市井美食+夜间演艺”为主线，串联__清明上河园__、__清明上河园打铁花__、__开封博物馆__、__龙亭__、__开封府__与__灌汤包__，打造可游、可学、可演、可吃的春季宋文化目的地。',
       sections: [
-        { heading: '针对性背景分析', items: ['政策背景：契合历史文化名城保护、宋文化转化和夜间文旅消费方向，推动古都资源从观光向沉浸体验升级。', '市场研判：春季适合古城步行、花事游园和夜间演艺，短途亲子与青年客群对汉服、街区、美食和__清明上河园打铁花__这类强视觉民俗演艺接受度高。', '资源价值：__清明上河园__是宋韵沉浸核心，清明上河园打铁花强化夜间传播，__龙亭__强化皇家园林记忆，__开封府__承载包公文化，__灌汤包__形成味觉记忆。', '客群画像：亲子家庭关注宋史研学，青年游客偏好汉服旅拍、打铁花夜游和短视频传播，文化游客关注古都格局与地方故事。', 'SWOT：优势是宋文化辨识度强、演艺成熟；劣势是旺季拥挤与同质古街体验；机会是国风消费、打铁花传播和夜游经济；威胁是周边古都竞争。'] },
+        { heading: '针对性背景分析', items: ['政策背景：契合历史文化名城保护、宋文化转化和夜间文旅消费方向，推动古都资源从观光向沉浸体验升级。', '市场研判：春季适合古城步行、花事游园、文博研学和夜间演艺，短途亲子与青年客群对汉服、街区、美食和__清明上河园打铁花__这类强视觉民俗演艺接受度高。', '资源价值：__清明上河园__是宋韵沉浸核心，清明上河园打铁花强化夜间传播，__开封博物馆__提供系统化宋史与城市文物入口，__龙亭__强化皇家园林记忆，__开封府__承载包公文化，__灌汤包__形成味觉记忆。', '客群画像：亲子家庭关注开封博物馆和宋史研学，青年游客偏好汉服旅拍、打铁花夜游和短视频传播，文化游客关注古都格局与地方故事。', 'SWOT：优势是宋文化辨识度强、文博资源和演艺成熟；劣势是旺季拥挤与同质古街体验；机会是国风消费、打铁花传播、文博研学和夜游经济；威胁是周边古都竞争。'] },
         { heading: '发展定位', items: ['对外名片：中国宋韵春游古都、沉浸式市井文化目的地。', '评定路径：以清明上河园、龙亭、开封府和夜市美食构建宋文化日夜产品闭环。', '价值主张：让游客在开封完成“入宋景、看府衙、逛御苑、吃灌汤包”的春日古都体验。'] },
-        { heading: '策略思路', items: ['破局点一：以清明上河园做沉浸主场，用宋韵演艺、街区和打铁花增强停留。', '破局点二：以龙亭和开封府做文化骨架，补足皇家与府衙双叙事。', '破局点三：以灌汤包和夜市做烟火转化，把古都记忆落到饮食体验。', '破局点四：以汉服旅拍、打铁花夜场和亲子任务卡降低文化理解门槛。'] },
-        { heading: '实施方案', items: ['具体项目：推出“清明上河园宋韵线”“清明上河园打铁花夜场”“龙亭春日游园”“开封府包公文化线”“灌汤包美食地图”“夜市国风漫游”六个项目包。', '产品体系：亲子宋史研学线、青年汉服打铁花夜游线、银发古城慢游线、郑州开封双城周末线。', '基础设施：完善古城步行导视、夜市分流、打铁花观演安全提示、汉服换装点、亲子休息点和景区预约提示。', '运营思路：联动景区、夜市、汉服商户和餐饮品牌，用宋韵护照、盖章任务、打铁花夜场票根和美食权益增强复游。'] }
+        { heading: '策略思路', items: ['破局点一：以清明上河园做沉浸主场，用宋韵演艺、街区和打铁花增强停留。', '破局点二：以开封博物馆、龙亭和开封府做文化骨架，补足文博、皇家与府衙三重叙事。', '破局点三：以灌汤包和夜市做烟火转化，把古都记忆落到饮食体验。', '破局点四：以汉服旅拍、打铁花夜场和亲子任务卡降低文化理解门槛。'] },
+        { heading: '实施方案', items: ['具体项目：推出“清明上河园宋韵线”“清明上河园打铁花夜场”“开封博物馆宋史研学”“龙亭春日游园”“开封府包公文化线”“灌汤包美食地图”“夜市国风漫游”七个项目包。', '产品体系：亲子宋史研学线、青年汉服打铁花夜游线、银发古城慢游线、郑州开封双城周末线。', '基础设施：完善古城步行导视、博物馆预约提示、夜市分流、打铁花观演安全提示、汉服换装点、亲子休息点和景区预约提示。', '运营思路：联动博物馆、景区、夜市、汉服商户和餐饮品牌，用宋韵护照、盖章任务、打铁花夜场票根和美食权益增强复游。'] }
       ],
-      tags: ['春季', '开封', '清明上河园', '打铁花', '灌汤包']
+      tags: ['春季', '开封', '清明上河园', '开封博物馆', '打铁花']
     }
   },
   huanggang: {

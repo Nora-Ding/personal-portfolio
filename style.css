@@ -32,6 +32,10 @@ body {
   padding: 0 24px;
 }
 
+.travel-container {
+  max-width: 1200px;
+}
+
 /* Navbar */
 
 .navbar {
@@ -466,8 +470,8 @@ body {
 
 .travel-card {
   display: grid;
-  grid-template-columns: 1fr;
-  min-height: auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+  min-height: 520px;
   overflow: hidden;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -478,8 +482,9 @@ body {
 .travel-photo {
   position: relative;
   display: flex;
-  min-height: 360px;
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  min-height: 100%;
+  min-width: 0;
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
@@ -570,6 +575,7 @@ body {
   display: flex;
   flex: 1;
   flex-direction: column;
+  min-width: 0;
   padding: 26px;
 }
 
@@ -756,6 +762,17 @@ body {
 
 /* Responsive */
 
+@media (max-width: 900px) {
+  .travel-card {
+    min-height: auto;
+  }
+
+  .travel-photo {
+    aspect-ratio: 16 / 9;
+    min-height: 260px;
+  }
+}
+
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2rem;
@@ -803,6 +820,10 @@ body {
   .travel-map,
   .travel-card {
     min-height: auto;
+  }
+
+  .travel-card {
+    grid-template-columns: 1fr;
   }
 
   .travel-map {
